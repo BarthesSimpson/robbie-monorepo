@@ -5,9 +5,21 @@ const mapStateToProps = state => {
     return {
         items: [
             {
-                title: 'test',
+                title: 'react',
                 topPostId: '123'
-            }
+            },
+            {
+                title: 'redux',
+                topPostId: '123'
+            },
+            {
+                title: 'udacity',
+                topPostId: '123'
+            },            
+            {
+                title: 'boobs',
+                topPostId: '123'
+            },
         ]
     }
 }

@@ -1,3 +1,5 @@
+@import '../../constants/_colors';
+
 div, button, span, input {
   box-sizing: border-box;
 }
@@ -12,10 +14,10 @@ div, button, span, input {
 }
 
 .App-header {
-  background-color: #222;
+  background-color: $nice_black;
   height: 15vh;
   padding: 1em;
-  color: white;
+  color: $nice_white;
 }
 
 .App-intro {

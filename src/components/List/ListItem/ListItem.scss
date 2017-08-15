@@ -1,0 +1,41 @@
+@import '../../../constants/_colors';
+@import '../../../constants/_media';
+
+.ListItem {
+    height: 70vh;
+    width: 29vw;
+    padding: 0.75em;
+    background-size: auto 80%;
+    background-color: #222;
+    margin: 1em;
+    color: #fff0e0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    @media screen and (max-width: $tablet) {
+        width: 43vw;
+    }    
+    @media screen and (max-width: $mobile) {
+        width: 90vw;
+        margin: 0.5em auto 0 auto;
+    }
+}
+
+.ListItem:hover {
+    background-color: $nice_black_hover;
+}
+
+.icon {
+    display: block;
+    size: 4em;
+    margin: 1em;
+}
+
+.teaser {
+    font-size: x-small;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
