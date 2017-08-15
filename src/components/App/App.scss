@@ -1,0 +1,23 @@
+div, button, span, input {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 100%;
+  float: left;
+}
+
+.App-header {
+  background-color: #222;
+  height: 15vh;
+  padding: 1em;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
