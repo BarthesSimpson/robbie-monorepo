@@ -3,6 +3,7 @@ import { createStore, applyMiddleware } from 'redux'
 
 //******** MIDDLEWARES
 // import createSagaMiddleware from 'redux-saga'
+import thunk from 'redux-thunk';
 
 //******** OTHER
 import rootReducer from './reducers'
@@ -18,7 +19,7 @@ import persistState from 'redux-localstorage'
 
 
 // put it all together
-const middleWares = []
+const middleWares = [thunk]
 let store
 if (process.env.NODE_ENV !== 'test') { //<----- NEED TO DISABLE THE LOCALSTORAGE ENHANCER WHEN TESTING, BECAUSE THERE'S NO BROWSER. COULD USE A LOCALSTORAGE POLYFILL INSTEAD...
   const enhancer = composeWithDevTools(

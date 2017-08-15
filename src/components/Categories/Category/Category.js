@@ -2,13 +2,13 @@ import React from 'react'
 import FontAwesome from 'react-fontawesome'
 import icons from '../../../constants/icons'
 import { toTitleCase } from '../../../helpers/text'
-import './ListItem.css'
+import './Category.css'
 
-const ListItem = ({ item }) => {
+const Category = ({ category }) => {
     return (
-        <div className="ListItem">
-            {toTitleCase(item.title)}
-            <FontAwesome className="icon" size="2x" name={icons[item.title]} />
+        <div className="Category">
+            {toTitleCase(category.name)}
+            <FontAwesome className="icon" size="2x" name={icons[category.name]} />
             <span className="teaser">
                 Oogly Boogly Oogly BooglyOogly Boogly Oogly BooglyOogly Boogly
                 Oogly BooglyOogly Boogly Oogly BooglyOogly Boogly Oogly
@@ -20,4 +20,4 @@ const ListItem = ({ item }) => {
     )
 }
 
-export default ListItem
+export default Category

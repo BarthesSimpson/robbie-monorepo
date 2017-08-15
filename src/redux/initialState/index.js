@@ -1,3 +1,6 @@
 export default {
-    test: 'test'
+    categories: [],
+    render: {
+        categoriesAreLoading: true
+    }
 }

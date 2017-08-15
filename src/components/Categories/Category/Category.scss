@@ -1,7 +1,7 @@
 @import '../../../constants/_colors';
 @import '../../../constants/_media';
 
-.ListItem {
+.Category {
     height: 70vh;
     width: 29vw;
     padding: 0.75em;
@@ -21,7 +21,7 @@
     }
 }
 
-.ListItem:hover {
+.Category:hover {
     background-color: $nice_black_hover;
 }
 
