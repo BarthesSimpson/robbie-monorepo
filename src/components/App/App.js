@@ -1,10 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-//COMPONENTS
-import CategoriesContainer from '../Categories/CategoriesContainer'
+//------- COMPONENTS
+import Home from '../Home'
+import Category from '../Categories/Category'
+import { Switch, Route } from 'react-router-dom'
 
-//STYLING
-import logo from '../../img/logo_alt.svg'
+//------- STYLING
 import './App.css'
 
 class App extends React.Component {
@@ -15,14 +17,17 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h2>What would you like to discuss today?</h2>
-                </div>
-                <CategoriesContainer />
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/categories/:category" component={Category} />
+                </Switch>
             </div>
         )
     }
+}
+
+App.PropTypes = {
+    getCategories: PropTypes.func.isRequired
 }
 
 export default App
