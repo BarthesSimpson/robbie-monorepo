@@ -6,7 +6,15 @@ function render(state = initialState.render, action) {
         case 'CATEGORIES_ARE_LOADING':
             return {
                 ...state,
-                categoriesAreLoading: action.categoriesAreLoading
+                categoriesAreLoading: action.bool
+            }
+        case 'POSTS_ARE_LOADING':
+            return {
+                ...state,
+                postsAreLoading: {
+                    ...state.postsAreLoading,
+                    [action.category]: action.bool
+                }
             }
         default:
             return state
@@ -22,7 +30,20 @@ function categories(state = initialState.categories, action) {
     }
 }
 
+function posts(state = initialState.posts, action) {
+    switch (action.type) {
+        case 'SET_POSTS':
+            return {
+                ...state,
+                [action.category]: action.posts
+            }
+        default:
+            return state
+    }
+}
+
 export default combineReducers({
     categories,
+    posts,
     render
 })

@@ -1,35 +1,23 @@
 import { connect } from 'react-redux'
+
+//------- COMPONENTS
 import Categories from './'
+
+//------- HELPERS
+import { getPostsFromServer } from '../../redux/middlewares/thunks/api'
 
 const mapStateToProps = state => {
     return {
-        categories: state.categories
-        // categories: [
-        //     {
-        //         title: 'react',
-        //         topPostId: '123'
-        //     },
-        //     {
-        //         title: 'redux',
-        //         topPostId: '123'
-        //     },
-        //     {
-        //         title: 'udacity',
-        //         topPostId: '123'
-        //     },            
-        //     // {
-        //     //     title: 'boobs',
-        //     //     topPostId: '123'
-        //     // },
-        // ]
+        categories: state.categories,
+        postsLoading: state.render.postsAreLoading,
+        posts: state.posts
     }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        getPosts: (category) => dispatch(getPostsFromServer(category))
+    }
 }
 
-// const mergeProps = (stateProps, dispatchProps) => {}
-
-// export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(List)
 export default connect(mapStateToProps, mapDispatchToProps)(Categories)

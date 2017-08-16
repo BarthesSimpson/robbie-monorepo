@@ -6,9 +6,10 @@
     width: 29vw;
     padding: 0.75em;
     background-size: auto 80%;
-    background-color: #222;
+    background-color: $nice_purple;
     margin: 1em;
     color: #fff0e0;
+    border-radius: 2px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     cursor: pointer;
@@ -22,7 +23,7 @@
 }
 
 .Category:hover {
-    background-color: $nice_black_hover;
+    background-color: $lighter_purple;
 }
 
 .icon {
@@ -31,7 +32,33 @@
     margin: 1em;
 }
 
-.teaser {
+.post-preview-container {
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    color: $nice_white;
+    margin: 0.1em;
+    background-color: $nice_red;
+    padding: 0.5em;
+    border-radius: 2px;
+}
+
+.Category:hover .post-preview-container {
+    background-color: $nice_tomato;
+}
+
+.Category .post-preview-container:hover {
+    background-color: $lightest_peach;
+    color: $nice_tomato;
+}
+
+
+.post-preview-title {
+    font-size: small;
+    display: block;
+}
+
+.post-preview-teaser {
     font-size: x-small;
     display: block;
     width: 100%;

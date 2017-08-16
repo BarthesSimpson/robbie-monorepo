@@ -7,16 +7,32 @@ import Category from './Category'
 //-------STYLING
 import './Categories.css'
 
-const Categories = ({ categories }) => {
-    return (
-        <div className="Categories">
-            {categories.length && categories.map(c => <Category key={c.name} category={c} />)}
-        </div>
-    )
+class Categories extends React.Component {
+    generateCategory(c) {
+        const catProps = {
+            key: c.name,
+            category: c,
+            posts: this.props.posts[c.name],
+            getPosts: this.props.getPosts,
+            isLoading: this.props.postsLoading[c.name]
+        }
+        return <Category {...catProps} />
+    }
+    render() {
+        const cats = this.props.categories
+        return (
+            <div className="Categories">
+                {cats.length && cats.map(c => this.generateCategory(c))}
+            </div>
+        )
+    }
 }
 
 Categories.PropTypes = {
-    categories: PropTypes.array.isRequired
+    categories: PropTypes.array.isRequired,
+    posts: PropTypes.array.isRequired,
+    postsLoading: PropTypes.object.isRequired,
+    getPosts: PropTypes.func.isRequired
 }
 
 export default Categories
