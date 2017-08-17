@@ -1,3 +1,3 @@
 # TODO:
 
-- integrate React Router 4
+- convert category headers to <Link> components and rethink hover color choices

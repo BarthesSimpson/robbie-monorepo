@@ -18,9 +18,10 @@ class Category extends React.Component {
     componentDidMount() {
         this.props.getPosts(this.props.category.name)
     }
-    generatePost(p) {
+    generatePostPreview(p) {
         const url = `/posts/${p.id}`
         return (
+            //<---THIS SHOULD PROBABLY BE ITS OWN COMPONENT
             <Link to={url} className="post-preview-container" key={p.id}>
                 <span className="post-preview-title">
                     {p.title}
@@ -33,15 +34,18 @@ class Category extends React.Component {
     }
     render() {
         const category = this.props.category
+        const url = `/categories/${category.name}`
         const posts = this.props.posts
         return (
             <div className="Category">
-                {toTitleCase(category.name)}
-                <FontAwesome
-                    className="icon"
-                    size="2x"
-                    name={icons[category.name]}
-                />
+                <Link to={url}>
+                    {toTitleCase(category.name)}
+                    <FontAwesome
+                        className="icon"
+                        size="2x"
+                        name={icons[category.name]}
+                    />
+                </Link>
                 {this.props.isLoading &&
                     <FontAwesome
                         className="icon"
@@ -49,7 +53,7 @@ class Category extends React.Component {
                         name="spinner"
                         spin
                     />}
-                {posts && posts.map(p => this.generatePost(p))}
+                {posts && posts.map(p => this.generatePostPreview(p))}
             </div>
         )
     }
