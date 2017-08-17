@@ -14,7 +14,8 @@ class Categories extends React.Component {
             category: c,
             posts: this.props.posts[c.name],
             getPosts: this.props.getPosts,
-            isLoading: this.props.postsLoading[c.name]
+            isLoading: this.props.postsLoading[c.name],
+            single: this.props.single
         }
         return <Category {...catProps} />
     }

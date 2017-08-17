@@ -8,7 +8,9 @@ import './Header.css'
 const Header = ({ msg }) => {
     return (
         <div className="header">
-            <img src={logo} className="logo-header" alt="logo" />
+            <a href="/" className="image-link">
+                <img src={logo} className="logo-header" alt="logo" />
+            </a>
             <h2>
                 {msg}
             </h2>

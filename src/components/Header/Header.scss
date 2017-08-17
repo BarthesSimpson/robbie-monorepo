@@ -1,13 +1,21 @@
 @import '../../constants/_colors';
 
 .logo-header {
-  height: 100%;
-  float: left;
+    height: 100%;
+    float: left;
 }
 
 .header {
-  background-color: $nice_black;
-  height: 15vh;
-  padding: 1em;
-  color: $nice_white;
+    background-color: $nice_black;
+    height: 15vh;
+    padding: 1em;
+    color: $nice_white;
+}
+
+.image-link {
+    display: block;
+    height: 100%;
+    float: left;
+    text-decoration: none;
+    color: inherit;
 }

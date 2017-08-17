@@ -7,3 +7,10 @@
   height: 15vh;
   padding: 1em;
   color: #FFF0E0; }
+
+.image-link {
+  display: block;
+  height: 100%;
+  float: left;
+  text-decoration: none;
+  color: inherit; }

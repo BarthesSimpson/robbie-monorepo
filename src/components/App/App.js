@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 //------- COMPONENTS
 import Home from '../Home'
-import Category from '../Categories/Category'
+import SingleCategory from '../SingleCategory'
 import { Switch, Route } from 'react-router-dom'
 
 //------- STYLING
@@ -18,8 +18,11 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/categories/:category" component={Category} />
+                    <Route
+                        path="/categories/:category"
+                        component={SingleCategory}
+                    />
+                    <Route path="/" component={Home} />
                 </Switch>
             </div>
         )

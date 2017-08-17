@@ -36,9 +36,11 @@ class Category extends React.Component {
         const category = this.props.category
         const url = `/categories/${category.name}`
         const posts = this.props.posts
+        const catClass =
+            'Category' + (this.props.single ? ' single-category' : '')
         return (
-            <div className="Category">
-                <Link to={url}>
+            <div className={catClass}>
+                <Link to={url} className="category-title">
                     {toTitleCase(category.name)}
                     <FontAwesome
                         className="icon"
@@ -61,6 +63,9 @@ class Category extends React.Component {
 
 Category.PropTypes = {
     category: PropTypes.string.isRequired,
-    getPosts: PropTypes.func.isRequired
+    posts: PropTypes.array.isRequired,
+    getPosts: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    single: PropTypes.bool.isRequired
 }
 export default Category
