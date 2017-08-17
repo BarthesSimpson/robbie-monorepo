@@ -1,0 +1,13 @@
+.Post {
+  height: 70vh;
+  width: 98vw;
+  margin: 0.5em auto 0 auto;
+  padding: 0.75em;
+  background-size: auto 80%;
+  background-color: #783E3F;
+  color: #FFF0E0;
+  border-radius: 2px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  text-align: left; }

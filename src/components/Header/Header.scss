@@ -2,20 +2,21 @@
 
 .logo-header {
     height: 100%;
-    float: left;
 }
 
 .header {
     background-color: $nice_black;
-    height: 15vh;
     padding: 1em;
     color: $nice_white;
+    overflow: hidden;
 }
 
 .image-link {
-    display: block;
-    height: 100%;
+    height: 10vh;
     float: left;
+    margin: 1vh;
     text-decoration: none;
     color: inherit;
+    box-sizing: border-box;
+    vertical-align: middle;
 }

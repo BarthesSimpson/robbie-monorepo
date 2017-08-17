@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 //------- COMPONENTS
 import Home from '../Home'
 import SingleCategory from '../SingleCategory'
+import SinglePostContainer from '../SinglePost/SinglePostContainer'
 import { Switch, Route } from 'react-router-dom'
 
 //------- STYLING
@@ -21,6 +22,10 @@ class App extends React.Component {
                     <Route
                         path="/categories/:category"
                         component={SingleCategory}
+                    />                    
+                    <Route
+                        path="/posts/:post"
+                        component={SinglePostContainer}
                     />
                     <Route path="/" component={Home} />
                 </Switch>

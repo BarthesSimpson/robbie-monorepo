@@ -42,8 +42,20 @@ function posts(state = initialState.posts, action) {
     }
 }
 
+function singlePosts(state = initialState.singlePosts, action) {
+    switch (action.type) {
+        case 'ADD_SINGLE_POST':
+            return state
+                .filter(p => p.id !== action.post.id)
+                .concat([action.post])
+        default:
+            return state
+    }
+}
+
 export default combineReducers({
     categories,
     posts,
+    singlePosts,
     render
 })

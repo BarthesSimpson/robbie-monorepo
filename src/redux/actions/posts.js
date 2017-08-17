@@ -1,5 +1,6 @@
 const POSTS_ARE_LOADING = 'POSTS_ARE_LOADING'
 const SET_POSTS = 'SET_POSTS'
+const ADD_SINGLE_POST = 'ADD_SINGLE_POST'
 
 export function postsAreLoading(category, bool) {
     return {
@@ -14,5 +15,12 @@ export function setPosts(category, posts) {
         type: SET_POSTS,
         category,
         posts
+    }
+}
+
+export function addSinglePost(post) {
+    return {
+        type: ADD_SINGLE_POST,
+        post
     }
 }

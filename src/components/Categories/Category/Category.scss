@@ -8,7 +8,7 @@
     background-size: auto 80%;
     background-color: $nice_purple;
     margin: 1em;
-    color: #fff0e0;
+    color: $nice_white;
     border-radius: 2px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -17,14 +17,14 @@
         width: 43vw;
     }
     @media screen and (max-width: $mobile) {
-        width: 90vw;
+        width: 98vw;
         margin: 0.5em auto 0 auto;
     }
 }
 
 .single-category {
     height: auto;
-    width: 90vw;
+    width: 98vw;
     margin: 0.5em auto 0 auto;
 }
 

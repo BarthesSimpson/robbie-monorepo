@@ -1,0 +1,1 @@
+export const maxWait = 7000

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 //------- COMPONENTS
 import FontAwesome from 'react-fontawesome'
+import Spinner from '../../Spinner'
 import { Link } from 'react-router-dom'
 
 //------- CONSTANTS
@@ -48,13 +49,7 @@ class Category extends React.Component {
                         name={icons[category.name]}
                     />
                 </Link>
-                {this.props.isLoading &&
-                    <FontAwesome
-                        className="icon"
-                        size="2x"
-                        name="spinner"
-                        spin
-                    />}
+                {this.props.isLoading && <Spinner />}
                 {posts && posts.map(p => this.generatePostPreview(p))}
             </div>
         )
