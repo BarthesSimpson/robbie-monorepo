@@ -1,5 +1,7 @@
 # TODO:
 
-- add new post button
+- enable new post button
 - enable liking/disliking and editing of single posts
-- reconsider hover color choices
+- flesh out post preview
+- enable sorting
+- add comments :/

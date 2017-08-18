@@ -11,3 +11,6 @@
   flex-shrink: 0;
   cursor: pointer;
   text-align: left; }
+
+.PostControls {
+  float: right; }

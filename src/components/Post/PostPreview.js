@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const PostPreview = ({ id, title, body, author, votes }) => {
+    console.log({ id })
     const url = `/posts/${id}`
     return (
         <Link to={url} className="post-preview-container">

@@ -30,6 +30,7 @@ class Category extends React.Component {
             votes,
             key: id
         }
+        console.log({prevProps})
         return <PostPreview {...prevProps} />
     }
     render() {

@@ -5,5 +5,8 @@ export default {
         categoriesAreLoading: true,
         postsAreLoading: {},
         sortedBy: 'recent'
+    },
+    controls: {
+        editing: null
     }
 }

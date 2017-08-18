@@ -4,24 +4,36 @@ import { withRouter } from 'react-router-dom'
 //------- COMPONENTS
 import SinglePost from './'
 
+//------- ACTIONS
+import { editPost } from '../../redux/actions/posts'
+
 //------- HELPERS
-import { fetchSinglePost } from '../../redux/middlewares/thunks/api'
+import {
+    fetchSinglePost,
+    likePost,
+    dislikePost,
+    deletePost
+} from '../../redux/middlewares/thunks/api'
 
 const mapStateToProps = (state, ownProps) => {
     const postId = ownProps.match.params.post
-    console.log({ postId })
     const post = state.posts[postId]
-    console.log({ post })
+    const isEditing = state.controls.editing === postId
 
     return {
         postId,
-        post
+        post,
+        isEditing
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchSinglePost: id => dispatch(fetchSinglePost(id))
+        fetchSinglePost: id => () => dispatch(fetchSinglePost(id)),
+        editPost: id => () => dispatch(editPost(id)),
+        likePost: id => () => dispatch(likePost(id)),
+        dislikePost: id => () => dispatch(dislikePost(id)),
+        deletePost: id => () => dispatch(deletePost(id))
     }
 }
 

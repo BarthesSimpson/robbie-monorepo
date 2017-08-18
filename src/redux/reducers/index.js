@@ -55,8 +55,21 @@ function posts(state = initialState.posts, action) {
     }
 }
 
+function controls(state = initialState.controls, action) {
+    switch (action.type) {
+        case 'EDIT_POST':
+            return {
+                ...state,
+                editing: action.id
+            }
+        default:
+            return state
+    }
+}
+
 export default combineReducers({
     categories,
     posts,
+    controls,
     render
 })
