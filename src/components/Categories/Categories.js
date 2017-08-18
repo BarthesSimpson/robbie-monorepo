@@ -10,11 +10,11 @@ import './Categories.css'
 class Categories extends React.Component {
     generateCategory(c) {
         const catProps = {
-            key: c.name,
+            key: c,
             category: c,
-            posts: this.props.posts[c.name],
+            posts: this.props.posts[c],
             getPosts: this.props.getPosts,
-            isLoading: this.props.postsLoading[c.name],
+            isLoading: this.props.postsLoading[c],
             single: this.props.single
         }
         return <Category {...catProps} />
@@ -31,7 +31,6 @@ class Categories extends React.Component {
 
 Categories.PropTypes = {
     categories: PropTypes.array.isRequired,
-    posts: PropTypes.array.isRequired,
     postsLoading: PropTypes.object.isRequired,
     getPosts: PropTypes.func.isRequired
 }

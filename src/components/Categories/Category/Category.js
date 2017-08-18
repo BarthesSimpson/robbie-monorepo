@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 //------- COMPONENTS
 import FontAwesome from 'react-fontawesome'
 import Spinner from '../../Spinner'
+import PostPreview from '../../Post/PostPreview'
 import { Link } from 'react-router-dom'
 
 //------- CONSTANTS
@@ -17,36 +18,34 @@ import './Category.css'
 
 class Category extends React.Component {
     componentDidMount() {
-        this.props.getPosts(this.props.category.name)
+        this.props.getPosts(this.props.category)
     }
     generatePostPreview(p) {
-        const url = `/posts/${p.id}`
-        return (
-            //<---THIS SHOULD PROBABLY BE ITS OWN COMPONENT
-            <Link to={url} className="post-preview-container" key={p.id}>
-                <span className="post-preview-title">
-                    {p.title}
-                </span>
-                <span className="post-preview-teaser">
-                    {p.body.substring(0, 100) + '...'}
-                </span>
-            </Link>
-        )
+        const { id, title, body, author, votes } = p
+        const prevProps = {
+            id,
+            title,
+            body,
+            author,
+            votes,
+            key: id
+        }
+        return <PostPreview {...prevProps} />
     }
     render() {
         const category = this.props.category
-        const url = `/categories/${category.name}`
+        const url = `/categories/${category}`
         const posts = this.props.posts
         const catClass =
             'Category' + (this.props.single ? ' single-category' : '')
         return (
             <div className={catClass}>
                 <Link to={url} className="category-title">
-                    {toTitleCase(category.name)}
+                    {toTitleCase(category)}
                     <FontAwesome
                         className="icon"
                         size="2x"
-                        name={icons[category.name]}
+                        name={icons[category]}
                     />
                 </Link>
                 {this.props.isLoading && <Spinner />}

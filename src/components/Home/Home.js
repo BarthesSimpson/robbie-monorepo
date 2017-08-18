@@ -2,6 +2,7 @@ import React from 'react'
 
 //------- COMPONENTS
 import Header from '../Header'
+import ControlsContainer from '../Controls/ControlsContainer'
 import CategoriesContainer from '../Categories/CategoriesContainer'
 
 //------- CONSTANTS
@@ -18,6 +19,7 @@ class Home extends React.Component {
         return (
             <div className="Home">
                 <Header msg={messages.header.home}/>
+                <ControlsContainer />
                 <CategoriesContainer />
             </div>
         )

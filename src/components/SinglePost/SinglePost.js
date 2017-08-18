@@ -20,7 +20,6 @@ class SinglePost extends React.Component {
         goHome()
     }
     render() {
-        console.log(this.props)
         const post = this.props.post
         return post
             ? <div className="SinglePost">

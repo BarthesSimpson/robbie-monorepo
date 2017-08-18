@@ -10,7 +10,7 @@ import { fetchSinglePost } from '../../redux/middlewares/thunks/api'
 const mapStateToProps = (state, ownProps) => {
     const postId = ownProps.match.params.post
     console.log({ postId })
-    const post = state.singlePosts.find(sp => sp.id === postId)
+    const post = state.posts[postId]
     console.log({ post })
 
     return {

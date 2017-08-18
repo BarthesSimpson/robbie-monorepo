@@ -12,7 +12,6 @@ import './App.css'
 
 class App extends React.Component {
     componentDidMount() {
-        // console.log(this.props.getCategories)
         this.props.getCategories()
     }
     render() {

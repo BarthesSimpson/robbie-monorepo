@@ -1,6 +1,6 @@
 //ACTION CREATORS
 import { categoriesAreLoading, setCategories } from '../../actions/categories'
-import { postsAreLoading, setPosts, addSinglePost } from '../../actions/posts'
+import { postsAreLoading, setPosts, downloadPost } from '../../actions/posts'
 
 //CONSTANTS
 import { apiEndpoint, headers } from '../../../constants/auth'
@@ -44,17 +44,16 @@ export function getPostsFromServer(category) {
 
 export function fetchSinglePost(id) {
     return dispatch => {
-        // dispatch(postsAreLoading(category, true))
         fetch(apiEndpoint + '/posts/' + id, headers)
             .then(res => {
                 if (!res.ok) {
                     throw Error(res.statusText)
                 }
-                // dispatch(postsAreLoading(category, false))
                 return res
             })
             .then(res => res.json())
-            .then(post => dispatch(addSinglePost(post)))
+            // .then(console.log)
+            .then(post => dispatch(downloadPost(post)))
             .catch(goHome)
     }
 }

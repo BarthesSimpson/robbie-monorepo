@@ -16,6 +16,11 @@ function render(state = initialState.render, action) {
                     [action.category]: action.bool
                 }
             }
+        case 'SORT_BY':
+            return {
+                ...state,
+                sortedBy: action.col
+            }
         default:
             return state
     }
@@ -24,14 +29,10 @@ function render(state = initialState.render, action) {
 function categories(state = initialState.categories, action) {
     switch (action.type) {
         case 'SET_CATEGORIES':
-            return action.categories
-        default:
-            return state
-    }
-}
-
-function posts(state = initialState.posts, action) {
-    switch (action.type) {
+            return action.categories.reduce((l, r) => {
+                l[r.name] = l[r.name] || []
+                return l
+            }, state)
         case 'SET_POSTS':
             return {
                 ...state,
@@ -42,12 +43,13 @@ function posts(state = initialState.posts, action) {
     }
 }
 
-function singlePosts(state = initialState.singlePosts, action) {
+function posts(state = initialState.posts, action) {
     switch (action.type) {
-        case 'ADD_SINGLE_POST':
-            return state
-                .filter(p => p.id !== action.post.id)
-                .concat([action.post])
+        case 'DOWNLOAD_POST':
+            return {
+                ...state,
+                [action.post.id]: action.post
+            }
         default:
             return state
     }
@@ -56,6 +58,5 @@ function singlePosts(state = initialState.singlePosts, action) {
 export default combineReducers({
     categories,
     posts,
-    singlePosts,
     render
 })

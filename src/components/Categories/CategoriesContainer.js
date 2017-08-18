@@ -8,13 +8,16 @@ import Categories from './'
 import { getPostsFromServer } from '../../redux/middlewares/thunks/api'
 
 const mapStateToProps = (state, ownProps) => {
-    // console.log({ ownProps })
+    const allCats = Object.keys(state.categories)
+    const categories = ownProps.categories
+            ? allCats.filter(c => ownProps.categories.includes(c))
+            : allCats
+    const posts = state.categories
     return {
-        categories: ownProps.categories
-            ? state.categories.filter(c => ownProps.categories.includes(c.name))
-            : state.categories,
+        categories,
+        posts,
+        sortedBy: state.render.sortedBy,
         postsLoading: state.render.postsAreLoading,
-        posts: state.posts,
         single: ownProps.categories && ownProps.categories.length === 1
     }
 }

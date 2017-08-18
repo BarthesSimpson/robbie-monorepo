@@ -1,13 +1,17 @@
 @import '../../constants/_colors';
 
-div, button, span, input {
-  box-sizing: border-box;
+div,
+button,
+span,
+input {
+    box-sizing: border-box;
+    outline: none;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }

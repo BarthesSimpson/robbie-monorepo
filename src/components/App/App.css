@@ -1,5 +1,9 @@
-div, button, span, input {
-  box-sizing: border-box; }
+div,
+button,
+span,
+input {
+  box-sizing: border-box;
+  outline: none; }
 
 .App {
   text-align: center; }

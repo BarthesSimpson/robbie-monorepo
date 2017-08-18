@@ -1,6 +1,7 @@
 const POSTS_ARE_LOADING = 'POSTS_ARE_LOADING'
 const SET_POSTS = 'SET_POSTS'
-const ADD_SINGLE_POST = 'ADD_SINGLE_POST'
+const DOWNLOAD_POST = 'DOWNLOAD_POST'
+const SORT_BY = 'SORT_BY'
 
 export function postsAreLoading(category, bool) {
     return {
@@ -18,9 +19,16 @@ export function setPosts(category, posts) {
     }
 }
 
-export function addSinglePost(post) {
+export function downloadPost(post) {
     return {
-        type: ADD_SINGLE_POST,
+        type: DOWNLOAD_POST,
         post
+    }
+}
+
+export function sortBy(col) {
+    return {
+        type: SORT_BY,
+        col
     }
 }

@@ -1,9 +1,9 @@
 export default {
-    categories: [],
+    categories: {},
     posts: {},
-    singlePosts: [],
     render: {
         categoriesAreLoading: true,
-        postsAreLoading: {}
+        postsAreLoading: {},
+        sortedBy: 'recent'
     }
 }
