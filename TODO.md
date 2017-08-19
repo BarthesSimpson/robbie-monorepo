@@ -1,6 +1,6 @@
 # TODO:
 
-- enable liking/disliking and editing of single posts
+- enable editing and deleting of single post
 - enable new post button
 - flesh out post preview
 - enable sorting
