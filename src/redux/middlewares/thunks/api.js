@@ -2,6 +2,8 @@
 import { categoriesAreLoading, setCategories } from '../../actions/categories'
 import {
     postsAreLoading,
+    postIsUpdating,
+    cancelEdit,
     setPosts,
     downloadPost,
     setComments
@@ -116,9 +118,32 @@ export function voteOnPost(id, option) {
     }
 }
 
+export function confirmEditPost(id, body, title) {
+    return dispatch => {
+        dispatch(postIsUpdating(id, true))
+        dispatch(cancelEdit())
+        fetch(apiEndpoint + '/posts/' + id, {
+            headers: postHeaders,
+            method: 'put',
+            body: JSON.stringify({ body, title })
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw Error(res.statusText)
+                }
+                return res
+            })
+            .then(res => res.json())
+            .then(post => {
+                dispatch(downloadPost(post))
+                dispatch(postIsUpdating(id, false))
+            })
+            .catch(console.error)
+    }
+}
+
 export function commentOnPost(id, comment) {
     return dispatch => {
-        return 'boobs'
         // fetch(apiEndpoint + '/posts/' + id, {
         //     headers: postHeaders,
         //     method: 'put',

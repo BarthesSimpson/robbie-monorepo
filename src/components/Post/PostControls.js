@@ -5,12 +5,12 @@ import FontAwesome from 'react-fontawesome'
 const PostControls = ({ post, commentOnPost, editPost, likePost, dislikePost, deletePost }) => {
     return (
         <div className="PostControls">
-            <button className="edit-post-btn" onClick={commentOnPost(post.id)}>
+            <button className="comment-post-btn" onClick={commentOnPost(post.id)}>
                 <FontAwesome
                 name="comment-o"
                 />
             </button>            
-            <button className="edit-post-btn" onClick={editPost(post.id)}>
+            <button className="edit-post-btn" onClick={editPost(post.id, post.body, post.title)}>
                 <FontAwesome
                 name="edit"
                 />

@@ -15,52 +15,56 @@ import { goHome } from '../../helpers/navigation'
 import './SinglePost.css'
 
 class SinglePost extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            deleting: false
-        }
-        this.toggleDelete = this.toggleDelete.bind(this)
+  constructor() {
+    super()
+    this.state = {
+      deleting: false
     }
-    componentDidMount() {
-        console.log('mountie')
-        console.log(this.props)
-        this.props.fetchPost(this.props.postId)
+    this.toggleDelete = this.toggleDelete.bind(this)
+  }
+  componentDidMount() {
+    this.props.fetchPost(this.props.postId)
+  }
+  postTimedOut() {
+    goHome()
+  }
+  toggleDelete() {
+    this.setState({ deleting: !this.state.deleting })
+  }
+  render() {
+    const controlProps = {
+      ...this.props,
+      deletePost: () => this.toggleDelete
     }
-    postTimedOut() {
-        goHome()
-    }
-    toggleDelete() {
-        this.setState({ deleting: !this.state.deleting })
-    }
-    render() {
-        const controlProps = {
-            ...this.props,
-            deletePost: () => this.toggleDelete
-        }
-        console.log({ controlProps })
-        const post = controlProps.post
-        return post
-            ? <div className="SinglePost">
-                  <Header msg={post.title} />
-                  <PostControls {...controlProps} />
-                  {this.state.deleting &&
-                      <YesNoDialog
-                          message="Are you sure you want to delete this post?"
-                          _onConfirm={this.props.deletePost}
-                          _onCancel={this.toggleDelete}
-                      />}
-                  <Post post={post} />
-                  {/* <Comments post={post}/> */}
-              </div>
-            : <Spinner timeout={this.postTimedOut} />
-    }
+    console.log({ controlProps })
+    const post = controlProps.post
+    return post
+      ? <div className="SinglePost">
+          <Header msg={post.title} editing={this.props.isEditing} />
+          {this.props.isEditing || <PostControls {...controlProps} />}
+          {this.state.deleting &&
+            <YesNoDialog
+              message="Are you sure you want to delete this post?"
+              _onConfirm={this.props.deletePost}
+              _onCancel={this.toggleDelete}
+            />}
+          <Post
+            post={post}
+            editing={this.props.isEditing}
+            updating={this.props.isUpdating}
+          />
+          {/* <Comments post={post}/> */}
+        </div>
+      : <Spinner timeout={this.postTimedOut} />
+  }
 }
 
-SinglePost.PropTypes = {
-    fetchSinglePost: PropTypes.func.isRequired,
-    postId: PropTypes.string.isRequired,
-    post: PropTypes.object
+SinglePost.propTypes = {
+  fetchPost: PropTypes.func.isRequired,
+  postId: PropTypes.string.isRequired,
+  post: PropTypes.object,
+  isEditing: PropTypes.bool.isRequired,
+  isUpdating: PropTypes.bool.isRequired
 }
 
 export default SinglePost

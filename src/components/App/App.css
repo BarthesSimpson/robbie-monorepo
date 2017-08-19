@@ -1,7 +1,8 @@
 div,
 button,
 span,
-input {
+input,
+textarea {
   box-sizing: border-box;
   outline: none; }
 

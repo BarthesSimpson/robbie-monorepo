@@ -1,24 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+//------- COMPONENTS
+import EditTitleContainer from '../EditPost/EditTitleContainer'
+
 //------- STYLING
 import logo from '../../img/logo_alt.svg'
 import './Header.css'
 
-const Header = ({ msg }) => {
+const Header = ({ msg, editing }) => {
     return (
-        <div className="header">
+        <header className="header">
             <a href="/" className="image-link">
                 <img src={logo} className="logo-header" alt="logo" />
             </a>
             <h2>
-                {msg}
+                {editing ? <EditTitleContainer /> : msg}
             </h2>
-        </div>
+        </header>
     )
 }
 
-Header.PropTypes = {
-    msg: PropTypes.string.isRequired
+Header.propTypes = {
+    msg: PropTypes.string.isRequired,
+    editing: PropTypes.bool
 }
 export default Header

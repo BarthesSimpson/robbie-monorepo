@@ -5,9 +5,11 @@ export default {
     render: {
         categoriesAreLoading: true,
         postsAreLoading: {},
+        postIsUpdating: {},
         sortedBy: 'recent'
     },
     controls: {
-        editing: null
+        editing: null,
+        content: null
     }
 }

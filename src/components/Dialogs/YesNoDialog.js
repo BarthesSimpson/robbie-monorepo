@@ -35,9 +35,9 @@ const YesNoDialog = ({
   )
 }
 
-YesNoDialog.PropTypes = {
-  confirmText: PropTypes.string.isRequired,
-  cancelText: PropTypes.string.isRequired,
+YesNoDialog.propTypes = {
+  confirmText: PropTypes.string,
+  cancelText: PropTypes.string,
   _onConfirm: PropTypes.func.isRequired,
   _onCancel: PropTypes.func.isRequired
 }

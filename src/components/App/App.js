@@ -33,7 +33,7 @@ class App extends React.Component {
     }
 }
 
-App.PropTypes = {
+App.propTypes = {
     getCategories: PropTypes.func.isRequired
 }
 

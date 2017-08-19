@@ -29,7 +29,7 @@ class Categories extends React.Component {
     }
 }
 
-Categories.PropTypes = {
+Categories.propTypes = {
     categories: PropTypes.array.isRequired,
     postsLoading: PropTypes.object.isRequired,
     getPosts: PropTypes.func.isRequired

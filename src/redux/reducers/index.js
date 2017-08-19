@@ -16,6 +16,14 @@ function render(state = initialState.render, action) {
                     [action.category]: action.bool
                 }
             }
+        case 'POST_IS_UPDATING':
+            return {
+                ...state,
+                postIsUpdating: {
+                    ...state.postIsUpdating,
+                    [action.id]: action.bool
+                }
+            }
         case 'SORT_BY':
             return {
                 ...state,
@@ -62,7 +70,7 @@ function comments(state = initialState.comments, action) {
                 ...state,
                 [action.postId]: action.comments
             }
-        // case 'DOWNLOAD_COMMENT': 
+        // case 'DOWNLOAD_COMMENT':
         //     return {
         //         ...state,
         //         [action.comment.id]: action.comment
@@ -77,7 +85,16 @@ function controls(state = initialState.controls, action) {
         case 'EDIT_POST':
             return {
                 ...state,
-                editing: action.id
+                editing: action.id,
+                content: action.content,
+                title: action.title
+            }
+        case 'CANCEL_EDIT':
+            return {
+                ...state,
+                editing: null,
+                content: null,
+                title: null
             }
         default:
             return state

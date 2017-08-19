@@ -7,8 +7,6 @@ import Controls from './'
 //------- ACTIONS
 import { sortBy } from '../../redux/actions/posts'
 
-//------- HELPERS
-
 const mapStateToProps = state => {
     return {
         sortedBy: state.render.sortedBy
