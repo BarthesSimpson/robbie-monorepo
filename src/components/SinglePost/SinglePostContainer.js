@@ -10,6 +10,7 @@ import { editPost } from '../../redux/actions/posts'
 //------- HELPERS
 import {
     fetchSinglePost,
+    commentOnPost,
     likePost,
     dislikePost,
     deletePost
@@ -17,7 +18,7 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
     const postId = ownProps.match.params.post
-    const post = state.posts[postId]
+    const post = { ...state.posts[postId], comments: state.comments[postId] }
     const isEditing = state.controls.editing === postId
 
     return {
@@ -29,7 +30,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchSinglePost: id => () => dispatch(fetchSinglePost(id)),
+        fetchPost: id => dispatch(fetchSinglePost(id)),
+        commentOnPost: (id, comment) => () =>
+            dispatch(commentOnPost(id, comment)),
         editPost: id => () => dispatch(editPost(id)),
         likePost: id => () => dispatch(likePost(id)),
         dislikePost: id => () => dispatch(dislikePost(id)),

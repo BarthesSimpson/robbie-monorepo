@@ -1,5 +1,6 @@
 const POSTS_ARE_LOADING = 'POSTS_ARE_LOADING'
 const SET_POSTS = 'SET_POSTS'
+const SET_COMMENTS = 'SET_COMMENTS'
 const DOWNLOAD_POST = 'DOWNLOAD_POST'
 const EDIT_POST = 'EDIT_POST'
 const SORT_BY = 'SORT_BY'
@@ -17,6 +18,14 @@ export function setPosts(category, posts) {
         type: SET_POSTS,
         category,
         posts
+    }
+}
+
+export function setComments(postId, comments) {
+    return {
+        type: SET_COMMENTS,
+        postId,
+        comments
     }
 }
 

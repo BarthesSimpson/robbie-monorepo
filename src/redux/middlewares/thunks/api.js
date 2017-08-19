@@ -1,6 +1,11 @@
 //ACTION CREATORS
 import { categoriesAreLoading, setCategories } from '../../actions/categories'
-import { postsAreLoading, setPosts, downloadPost } from '../../actions/posts'
+import {
+    postsAreLoading,
+    setPosts,
+    downloadPost,
+    setComments
+} from '../../actions/posts'
 
 //CONSTANTS
 import { apiEndpoint, headers, postHeaders } from '../../../constants/auth'
@@ -37,13 +42,32 @@ export function getPostsFromServer(category) {
                 return res
             })
             .then(res => res.json())
-            .then(arr => dispatch(setPosts(category, arr)))
+            .then(arr => {
+                arr.forEach(p => {
+                    dispatch(getCommentsFromServer(p.id))
+                })
+                dispatch(setPosts(category, arr))
+            })
+            .catch(console.error)
+    }
+}
+
+export function getCommentsFromServer(postId) {
+    return dispatch => {
+        fetch(apiEndpoint + '/posts/' + postId + '/comments', { headers })
+            .then(res => {
+                if (!res.ok) {
+                    throw Error(res.statusText)
+                }
+                return res
+            })
+            .then(res => res.json())
+            .then(arr => dispatch(setComments(postId, arr)))
             .catch(console.error)
     }
 }
 
 export function fetchSinglePost(id) {
-    console.log({ id })
     return dispatch => {
         fetch(apiEndpoint + '/posts/' + id, { headers })
             .then(res => {
@@ -55,9 +79,6 @@ export function fetchSinglePost(id) {
             .then(res => res.json())
             // .then(console.log)
             .then(post => dispatch(downloadPost(post)))
-            // .catch(err => {
-            //     console.error(err)
-            // })
             .catch(goHome)
     }
 }
@@ -92,6 +113,26 @@ export function voteOnPost(id, option) {
             .then(res => res.json())
             .then(post => dispatch(downloadPost(post)))
             .catch(console.error)
+    }
+}
+
+export function commentOnPost(id, comment) {
+    return dispatch => {
+        return 'boobs'
+        // fetch(apiEndpoint + '/posts/' + id, {
+        //     headers: postHeaders,
+        //     method: 'put',
+        //     body: JSON.stringify({ comment })
+        // })
+        //     .then(res => {
+        //         if (!res.ok) {
+        //             throw Error(res.statusText)
+        //         }
+        //         return res
+        //     })
+        //     .then(res => res.json())
+        //     .then(post => dispatch(downloadPost(post)))
+        //     .catch(console.error)
     }
 }
 

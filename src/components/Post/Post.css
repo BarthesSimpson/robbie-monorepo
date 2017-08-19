@@ -10,7 +10,12 @@
   -ms-flex-negative: 0;
   flex-shrink: 0;
   cursor: pointer;
-  text-align: left; }
+  text-align: left;
+  overflow: hidden; }
 
 .PostControls {
+  float: right; }
+
+.post-stats {
+  display: block;
   float: right; }

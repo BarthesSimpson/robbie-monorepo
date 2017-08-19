@@ -55,6 +55,23 @@ function posts(state = initialState.posts, action) {
     }
 }
 
+function comments(state = initialState.comments, action) {
+    switch (action.type) {
+        case 'SET_COMMENTS':
+            return {
+                ...state,
+                [action.postId]: action.comments
+            }
+        // case 'DOWNLOAD_COMMENT': 
+        //     return {
+        //         ...state,
+        //         [action.comment.id]: action.comment
+        //     }
+        default:
+            return state
+    }
+}
+
 function controls(state = initialState.controls, action) {
     switch (action.type) {
         case 'EDIT_POST':
@@ -70,6 +87,7 @@ function controls(state = initialState.controls, action) {
 export default combineReducers({
     categories,
     posts,
+    comments,
     controls,
     render
 })

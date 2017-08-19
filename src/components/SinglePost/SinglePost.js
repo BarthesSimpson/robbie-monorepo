@@ -23,13 +23,14 @@ class SinglePost extends React.Component {
         this.toggleDelete = this.toggleDelete.bind(this)
     }
     componentDidMount() {
-        this.props.fetchSinglePost(this.props.postId)
+        console.log('mountie')
+        console.log(this.props)
+        this.props.fetchPost(this.props.postId)
     }
     postTimedOut() {
         goHome()
     }
     toggleDelete() {
-        console.log('woot')
         this.setState({ deleting: !this.state.deleting })
     }
     render() {
