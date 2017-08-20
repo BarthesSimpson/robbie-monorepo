@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 //------- COMPONENTS
-import EditPost from './'
+import EditComment from './'
 
 //------- ACTIONS
 import { cancelEdit, editItem } from '../../redux/actions/posts'
@@ -12,20 +12,19 @@ import { confirmEditItem } from '../../redux/middlewares/thunks/api'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        postId: ownProps.post.id,
+        commentId: ownProps.comment.id,
         content: state.controls.content,
-        title: state.controls.title
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         cancelEdit: () => dispatch(cancelEdit()),
-        confirmEdit: (id, content, title) => dispatch(confirmEditItem(id, content, title, 'post')),
-        updateContent: (id, content, title) => dispatch(editItem(id, content, title))
+        confirmEdit: (id, content) => dispatch(confirmEditItem(id, content, null, 'comment')),
+        updateContent: (id, content) => dispatch(editItem(id, content))
     }
 }
 
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(EditPost)
+    connect(mapStateToProps, mapDispatchToProps)(EditComment)
 )

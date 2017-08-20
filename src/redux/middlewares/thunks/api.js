@@ -4,9 +4,10 @@ import {
     postsAreLoading,
     postIsUpdating,
     cancelEdit,
-    // deletedPost,
     setPosts,
     downloadPost,
+    downloadComment,
+    deleteComment,
     setComments
 } from '../../actions/posts'
 
@@ -92,17 +93,17 @@ export function fetchSinglePost(id) {
   there is a counter that warns you if you're downvoting too much.
 */
 
-export function likePost(id) {
-    return voteOnPost(id, 'upVote')
+export function likeItem(id, type) {
+    return voteOnItem(id, 'upVote', type)
 }
 
-export function dislikePost(id) {
-    return voteOnPost(id, 'downVote')
+export function dislikeItem(id, type) {
+    return voteOnItem(id, 'downVote', type)
 }
 
-export function voteOnPost(id, option) {
+export function voteOnItem(id, option, type) {
     return dispatch => {
-        fetch(apiEndpoint + '/posts/' + id, {
+        fetch(apiEndpoint + '/' + type + 's/' + id, {
             headers: postHeaders,
             method: 'post',
             body: JSON.stringify({ option })
@@ -114,16 +115,21 @@ export function voteOnPost(id, option) {
                 return res
             })
             .then(res => res.json())
-            .then(post => dispatch(downloadPost(post)))
+            .then(updated => {
+                // console.log({ updated })
+                type === 'post'
+                    ? dispatch(downloadPost(updated))
+                    : dispatch(downloadComment(updated))
+            })
             .catch(console.error)
     }
 }
 
-export function confirmEditPost(id, body, title) {
+export function confirmEditItem(id, body, title, type) {
     return dispatch => {
         dispatch(postIsUpdating(id, true))
         dispatch(cancelEdit())
-        fetch(apiEndpoint + '/posts/' + id, {
+        fetch(apiEndpoint + '/' + type + 's/' + id, {
             headers: postHeaders,
             method: 'put',
             body: JSON.stringify({ body, title })
@@ -135,8 +141,10 @@ export function confirmEditPost(id, body, title) {
                 return res
             })
             .then(res => res.json())
-            .then(post => {
-                dispatch(downloadPost(post))
+            .then(updated => {
+                type === 'post'
+                    ? dispatch(downloadPost(updated))
+                    : dispatch(downloadComment(updated))
                 dispatch(postIsUpdating(id, false))
             })
             .catch(console.error)
@@ -162,9 +170,9 @@ export function commentOnPost(id, comment) {
     }
 }
 
-export function deletePost(id) {
+export function deleteItem(id, type) {
     return dispatch => {
-        fetch(apiEndpoint + '/posts/' + id, {
+        fetch(apiEndpoint + '/' + type + 's/' + id, {
             headers,
             method: 'delete'
         })
@@ -172,8 +180,13 @@ export function deletePost(id) {
                 if (!res.ok) {
                     throw Error(res.statusText)
                 }
+                return res
             })
-            .then(goHome)
+            .then(res => res.json())
+            .then(item => {
+                console.log({ item })
+                type === 'post' ? goHome() : dispatch(deleteComment(item))
+            })
             .catch(console.error)
     }
 }

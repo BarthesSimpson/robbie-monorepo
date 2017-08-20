@@ -6,6 +6,7 @@ import Header from '../Header'
 import Post from '../Post'
 import PostControls from '../Post/PostControls'
 import YesNoDialog from '../Dialogs/YesNoDialog'
+import CommentsContainer from '../Comments/CommentsContainer'
 import Spinner from '../Spinner'
 
 //------- HELPERS
@@ -53,7 +54,7 @@ class SinglePost extends React.Component {
             editing={this.props.isEditing}
             updating={this.props.isUpdating}
           />
-          {/* <Comments post={post}/> */}
+          <CommentsContainer post={post}/>
         </div>
       : <Spinner timeout={this.postTimedOut} />
   }

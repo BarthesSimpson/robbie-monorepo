@@ -5,15 +5,15 @@ import { withRouter } from 'react-router-dom'
 import SinglePost from './'
 
 //------- ACTIONS
-import { editPost } from '../../redux/actions/posts'
+import { editItem } from '../../redux/actions/posts'
 
 //------- HELPERS
 import {
     fetchSinglePost,
     commentOnPost,
-    likePost,
-    dislikePost,
-    deletePost
+    likeItem,
+    dislikeItem,
+    deleteItem
 } from '../../redux/middlewares/thunks/api'
 
 const mapStateToProps = (state, ownProps) => {
@@ -36,10 +36,10 @@ const mapDispatchToProps = dispatch => {
         commentOnPost: (id, comment) => () =>
             dispatch(commentOnPost(id, comment)),
         editPost: (id, content, title) => () =>
-            dispatch(editPost(id, content, title)),
-        likePost: id => () => dispatch(likePost(id)),
-        dislikePost: id => () => dispatch(dislikePost(id)),
-        deletePost: id => () => dispatch(deletePost(id))
+            dispatch(editItem(id, content, title)),
+        likePost: id => () => dispatch(likeItem(id, 'post')),
+        dislikePost: id => () => dispatch(dislikeItem(id, 'post')),
+        deletePost: id => () => dispatch(deleteItem(id, 'post'))
     }
 }
 

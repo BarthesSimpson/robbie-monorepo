@@ -70,11 +70,20 @@ function comments(state = initialState.comments, action) {
                 ...state,
                 [action.postId]: action.comments
             }
-        // case 'DOWNLOAD_COMMENT':
-        //     return {
-        //         ...state,
-        //         [action.comment.id]: action.comment
-        //     }
+        case 'DOWNLOAD_COMMENT':
+            return {
+                ...state,
+                [action.comment.parentId]: state[action.comment.parentId].map(
+                    c => (c.id === action.comment.id ? action.comment : c)
+                )
+            }
+        case 'DELETE_COMMENT':
+            return {
+                ...state,
+                [action.comment.parentId]: state[
+                    action.comment.parentId
+                ].filter(c => c.id !== action.comment.id)
+            }
         default:
             return state
     }
@@ -82,7 +91,7 @@ function comments(state = initialState.comments, action) {
 
 function controls(state = initialState.controls, action) {
     switch (action.type) {
-        case 'EDIT_POST':
+        case 'EDIT_ITEM':
             return {
                 ...state,
                 editing: action.id,

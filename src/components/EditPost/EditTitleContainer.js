@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import EditTitle from './EditTitle'
 
 //------- ACTIONS
-import { editPost } from '../../redux/actions/posts'
+import { editItem } from '../../redux/actions/posts'
 
 //------- HELPERS
 
@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateTitle: (id, content, title) => dispatch(editPost(id, content, title))
+        updateTitle: (id, content, title) => dispatch(editItem(id, content, title))
     }
 }
 

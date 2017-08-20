@@ -22,7 +22,7 @@ const Header = ({ msg, editing }) => {
 }
 
 Header.propTypes = {
-    msg: PropTypes.string.isRequired,
+    msg: PropTypes.string,
     editing: PropTypes.bool
 }
 export default Header
