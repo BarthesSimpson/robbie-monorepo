@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 //------- COMPONENTS
 import Header from '../Header'
 import Post from '../Post'
-import PostControls from '../Post/PostControls'
 import YesNoDialog from '../Dialogs/YesNoDialog'
 import CommentsContainer from '../Comments/CommentsContainer'
 import Spinner from '../Spinner'
@@ -37,15 +36,12 @@ class SinglePost extends React.Component {
       ...this.props,
       deletePost: () => this.toggleDelete
     }
-    console.log({ controlProps })
+    // console.log({ controlProps })
     const post = controlProps.post
     const postNotFound = !post || post.deleted
     return post
       ? <div className="SinglePost">
           <Header msg={post.title} editing={this.props.isEditing} />
-          {this.props.isEditing ||
-            postNotFound ||
-            <PostControls {...controlProps} />}
           {this.state.deleting &&
             <YesNoDialog
               message="Are you sure you want to delete this post?"
@@ -54,6 +50,7 @@ class SinglePost extends React.Component {
             />}
           <Post
             post={post}
+            control={controlProps}
             editing={this.props.isEditing}
             updating={this.props.isUpdating}
           />

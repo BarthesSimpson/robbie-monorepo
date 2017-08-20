@@ -18,4 +18,10 @@
 
 .post-stats {
   display: block;
-  float: right; }
+  float: right;
+  margin-right: 1em;
+  line-height: 1.5em; }
+
+.post-cnt-btn {
+  background-color: #8484ae;
+  border-color: #223; }

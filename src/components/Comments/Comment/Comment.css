@@ -24,3 +24,7 @@
   float: right;
   margin-right: 1em;
   line-height: 1.5em; }
+
+.comment-cnt-btn {
+  background-color: #D7755F;
+  border-color: #783E3F; }

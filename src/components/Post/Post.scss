@@ -23,4 +23,11 @@
 .post-stats {
     display: block;
     float: right;
+    margin-right: 1em;
+    line-height: 1.5em;
+}
+
+.post-cnt-btn {
+    background-color: $lightest_purple;
+    border-color: $nice_purple;
 }

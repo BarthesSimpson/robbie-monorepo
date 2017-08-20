@@ -13,25 +13,25 @@ const CommentControls = ({
     return (
         <div className="CommentControls">
             <button
-                className="edit-comment-btn"
+                className="comment-cnt-btn edit-comment-btn"
                 onClick={editComment(comment.id, comment.body)}
             >
                 <FontAwesome name="edit" />
             </button>
             <button
-                className="like-comment-btn"
+                className="comment-cnt-btn like-comment-btn"
                 onClick={likeComment(comment.id)}
             >
                 <FontAwesome name="thumbs-up" />
             </button>
             <button
-                className="dislike-comment-btn"
+                className="comment-cnt-btn dislike-comment-btn"
                 onClick={dislikeComment(comment.id)}
             >
                 <FontAwesome name="thumbs-down" />
             </button>
             <button
-                className="delete-comment-btn"
+                className="comment-cnt-btn delete-comment-btn"
                 onClick={deleteComment(comment.id)}
             >
                 <FontAwesome name="trash-o" />
