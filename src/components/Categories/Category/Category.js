@@ -21,13 +21,14 @@ class Category extends React.Component {
         this.props.getPosts(this.props.category)
     }
     generatePostPreview(p) {
-        const { id, title, body, author, votes } = p
+        const { id, title, body, author, voteScore } = p
         const prevProps = {
             id,
             title,
             body,
             author,
-            votes,
+            voteScore,
+            category: this.props.category,
             key: id
         }
         console.log({prevProps})
@@ -35,7 +36,7 @@ class Category extends React.Component {
     }
     render() {
         const category = this.props.category
-        const url = `/categories/${category}`
+        const url = `/${category}`
         const posts = this.props.posts
         const catClass =
             'Category' + (this.props.single ? ' single-category' : '')

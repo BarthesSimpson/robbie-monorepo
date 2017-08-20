@@ -17,6 +17,7 @@ import {
 } from '../../redux/middlewares/thunks/api'
 
 const mapStateToProps = (state, ownProps) => {
+    console.log({ownProps})
     const postId = ownProps.match.params.post
     const post = { ...state.posts[postId], comments: state.comments[postId] }
     const isEditing = state.controls.editing === postId

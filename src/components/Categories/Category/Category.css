@@ -55,6 +55,11 @@
   background-color: #ECD2C8;
   color: #D7755F; }
 
+.post-preview-votes {
+  display: block;
+  float: right;
+  font-size: small; }
+
 .post-preview-title {
   font-size: small;
   display: block; }

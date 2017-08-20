@@ -19,13 +19,10 @@ class App extends React.Component {
             <div className="App">
                 <Switch>
                     <Route
-                        path="/categories/:category"
-                        component={SingleCategory}
-                    />                    
-                    <Route
-                        path="/posts/:post"
+                        path="/:category/:post"
                         component={SinglePostContainer}
                     />
+                    <Route path="/:category" component={SingleCategory} />
                     <Route path="/" component={Home} />
                 </Switch>
             </div>

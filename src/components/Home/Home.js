@@ -11,19 +11,14 @@ import messages from '../../constants/messages'
 //------- STYLING
 import './Home.css'
 
-
-class Home extends React.Component {
-    state = {}
-
-    render() {
-        return (
-            <div className="Home">
-                <Header msg={messages.header.home}/>
-                <ControlsContainer />
-                <CategoriesContainer />
-            </div>
-        )
-    }
+const Home = () => {
+    return (
+        <div className="Home">
+            <Header msg={messages.header.home} />
+            <ControlsContainer />
+            <CategoriesContainer />
+        </div>
+    )
 }
 
 export default Home

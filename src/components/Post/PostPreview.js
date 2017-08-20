@@ -1,11 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
+//------- COMPONENTS
 import { Link } from 'react-router-dom'
 
-const PostPreview = ({ id, title, body, author, votes }) => {
+const PostPreview = ({ id, title, body, author, voteScore, category }) => {
     console.log({ id })
-    const url = `/posts/${id}`
+    const url = `/${category}/${id}`
     return (
         <Link to={url} className="post-preview-container">
+            <span className="post-preview-votes">
+                {voteScore + ' votes'}
+            </span>
             <span className="post-preview-title">
                 {title}
             </span>
@@ -14,6 +20,15 @@ const PostPreview = ({ id, title, body, author, votes }) => {
             </span>
         </Link>
     )
+}
+
+PostPreview.propTypes = {
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    voteScore: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired
 }
 
 export default PostPreview

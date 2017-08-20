@@ -65,7 +65,11 @@
     background-color: $lightest_peach;
     color: $nice_tomato;
 }
-
+.post-preview-votes {
+    display: block;
+    float: right;
+    font-size: small;
+}
 .post-preview-title {
     font-size: small;
     display: block;
