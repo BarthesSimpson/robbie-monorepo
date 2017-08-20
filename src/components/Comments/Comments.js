@@ -21,7 +21,7 @@ class Comments extends Component {
         console.log(this.props)
         return (
             <div className="Comments">
-                {this.props.post.comments.map(c => this.generateComment(c))}
+                {this.props.post.comments && this.props.post.comments.map(c => this.generateComment(c))}
                 <div className="add-comment">Add a comment</div>
             </div>
         )

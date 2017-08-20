@@ -1,1 +1,1 @@
-export const maxWait = 80000
+export const maxWait = 8000

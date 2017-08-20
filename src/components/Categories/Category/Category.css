@@ -49,7 +49,8 @@
   border-radius: 2px; }
 
 .Category:hover .post-preview-container {
-  background-color: #D7755F; }
+  background-color: #D7755F;
+  overflow: hidden; }
 
 .Category .post-preview-container:hover {
   background-color: #ECD2C8;
@@ -58,11 +59,13 @@
 .post-preview-votes {
   display: block;
   float: right;
-  font-size: small; }
+  font-size: small;
+  margin-left: 0.5em; }
 
 .post-preview-title {
   font-size: small;
-  display: block; }
+  display: block;
+  margin-bottom: 1em; }
 
 .post-preview-teaser {
   font-size: x-small;

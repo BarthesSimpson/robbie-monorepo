@@ -59,6 +59,7 @@
 
 .Category:hover .post-preview-container {
     background-color: $nice_tomato;
+    overflow: hidden;
 }
 
 .Category .post-preview-container:hover {
@@ -69,10 +70,13 @@
     display: block;
     float: right;
     font-size: small;
+    margin-left: 0.5em;
 }
+
 .post-preview-title {
     font-size: small;
     display: block;
+    margin-bottom: 1em;
 }
 
 .post-preview-teaser {

@@ -4,9 +4,9 @@ const SET_POSTS = 'SET_POSTS'
 const SET_COMMENTS = 'SET_COMMENTS'
 const DOWNLOAD_POST = 'DOWNLOAD_POST'
 const DOWNLOAD_COMMENT = 'DOWNLOAD_COMMENT'
+const DELETE_POST = 'DELETE_POST'
 const DELETE_COMMENT = 'DELETE_COMMENT'
 const EDIT_ITEM = 'EDIT_ITEM'
-const DELETED_POST = 'DELETED_POST'
 const CANCEL_EDIT = 'CANCEL_EDIT'
 const SORT_BY = 'SORT_BY'
 
@@ -72,10 +72,10 @@ export function editItem(id, content, title) {
     }
 }
 
-export function deletedPost(post) {
+export function deletePost(postId) {
     return {
-        type: DELETED_POST,
-        post
+        type: DELETE_POST,
+        postId
     }
 }
 

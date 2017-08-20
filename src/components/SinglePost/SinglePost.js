@@ -39,10 +39,13 @@ class SinglePost extends React.Component {
     }
     console.log({ controlProps })
     const post = controlProps.post
+    const postNotFound = !post || post.deleted
     return post
       ? <div className="SinglePost">
           <Header msg={post.title} editing={this.props.isEditing} />
-          {this.props.isEditing || <PostControls {...controlProps} />}
+          {this.props.isEditing ||
+            postNotFound ||
+            <PostControls {...controlProps} />}
           {this.state.deleting &&
             <YesNoDialog
               message="Are you sure you want to delete this post?"
@@ -54,7 +57,7 @@ class SinglePost extends React.Component {
             editing={this.props.isEditing}
             updating={this.props.isUpdating}
           />
-          <CommentsContainer post={post}/>
+          {postNotFound || <CommentsContainer post={post} />}
         </div>
       : <Spinner timeout={this.postTimedOut} />
   }

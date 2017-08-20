@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import initialState from '../initialState'
+import { dummyPost } from '../../constants/dummy'
 
 function render(state = initialState.render, action) {
     switch (action.type) {
@@ -46,6 +47,13 @@ function categories(state = initialState.categories, action) {
                 ...state,
                 [action.category]: action.posts
             }
+        case 'DELETE_POST':
+            console.log(action.postId)
+            //THIS IS A GROSS WAY TO DO IT, BUT IT'S THE LEAST OF THREE EVILS
+            return Object.keys(state).reduce((l, r) => {
+                l[r] = state[r].filter(p => p.id !== action.postId)
+                return l
+            }, {})
         default:
             return state
     }
@@ -57,6 +65,11 @@ function posts(state = initialState.posts, action) {
             return {
                 ...state,
                 [action.post.id]: action.post
+            }
+        case 'DELETE_POST':
+            return {
+                ...state,
+                [action.postId]: dummyPost
             }
         default:
             return state
@@ -83,6 +96,11 @@ function comments(state = initialState.comments, action) {
                 [action.comment.parentId]: state[
                     action.comment.parentId
                 ].filter(c => c.id !== action.comment.id)
+            }
+        case 'DELETE_POST':
+            return {
+                ...state,
+                [action.postId]: []
             }
         default:
             return state

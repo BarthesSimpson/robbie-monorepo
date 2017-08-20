@@ -7,6 +7,7 @@ import {
     setPosts,
     downloadPost,
     downloadComment,
+    deletePost,
     deleteComment,
     setComments
 } from '../../actions/posts'
@@ -182,10 +183,15 @@ export function deleteItem(id, type) {
                 }
                 return res
             })
-            .then(res => res.json())
-            .then(item => {
-                console.log({ item })
-                type === 'post' ? goHome() : dispatch(deleteComment(item))
+            .then(res => {
+                if (type === 'post') {
+                    goHome()
+                    dispatch(deletePost(id))
+                } else {
+                    return res
+                        .json()
+                        .then(comment => dispatch(deleteComment(comment)))
+                }
             })
             .catch(console.error)
     }
