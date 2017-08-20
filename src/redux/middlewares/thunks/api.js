@@ -4,6 +4,7 @@ import {
     postsAreLoading,
     postIsUpdating,
     cancelEdit,
+    // deletedPost,
     setPosts,
     downloadPost,
     setComments
@@ -171,10 +172,8 @@ export function deletePost(id) {
                 if (!res.ok) {
                     throw Error(res.statusText)
                 }
-                return res
             })
-            .then(res => res.json())
-            .then(post => dispatch(downloadPost(post)))
+            .then(goHome)
             .catch(console.error)
     }
 }

@@ -4,6 +4,7 @@ const SET_POSTS = 'SET_POSTS'
 const SET_COMMENTS = 'SET_COMMENTS'
 const DOWNLOAD_POST = 'DOWNLOAD_POST'
 const EDIT_POST = 'EDIT_POST'
+const DELETED_POST = 'DELETED_POST'
 const CANCEL_EDIT = 'CANCEL_EDIT'
 const SORT_BY = 'SORT_BY'
 
@@ -52,6 +53,13 @@ export function editPost(id, content, title) {
         id,
         content,
         title
+    }
+}
+
+export function deletedPost(post) {
+    return {
+        type: DELETED_POST,
+        post
     }
 }
 

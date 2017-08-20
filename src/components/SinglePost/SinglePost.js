@@ -45,7 +45,7 @@ class SinglePost extends React.Component {
           {this.state.deleting &&
             <YesNoDialog
               message="Are you sure you want to delete this post?"
-              _onConfirm={this.props.deletePost}
+              _onConfirm={this.props.deletePost(post.id)}
               _onCancel={this.toggleDelete}
             />}
           <Post

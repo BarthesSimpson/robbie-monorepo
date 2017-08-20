@@ -1,7 +1,6 @@
 # TODO:
 
-- finish implementing editing and deleting of single post
+- add comments :/
 - enable new post button
 - flesh out post preview
 - enable sorting
-- add comments :/
