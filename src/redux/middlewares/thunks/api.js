@@ -1,22 +1,25 @@
 //ACTION CREATORS
 import { categoriesAreLoading, setCategories } from '../../actions/categories'
 import {
+    cancelEdit,
+    downloadComment,
+    downloadPost,
+    deleteComment,
+    deletePost,
     postsAreLoading,
     postIsUpdating,
-    cancelEdit,
-    setPosts,
-    downloadPost,
-    downloadComment,
-    deletePost,
-    deleteComment,
-    setComments
+    setComments,
+    setPosts
 } from '../../actions/posts'
+
+import { cancelComment } from '../../actions/comments'
 
 //CONSTANTS
 import { apiEndpoint, headers, postHeaders } from '../../../constants/auth'
 
 //HELPERS
 import { goHome } from '../../../helpers/navigation'
+import { newPost, newComment } from '../../../helpers/posts'
 
 export function getCategoriesFromServer() {
     return dispatch => {
@@ -152,22 +155,47 @@ export function confirmEditItem(id, body, title, type) {
     }
 }
 
-export function commentOnPost(id, comment) {
+export function createNewPost(author, category, title, body) {
     return dispatch => {
-        // fetch(apiEndpoint + '/posts/' + id, {
-        //     headers: postHeaders,
-        //     method: 'put',
-        //     body: JSON.stringify({ comment })
-        // })
-        //     .then(res => {
-        //         if (!res.ok) {
-        //             throw Error(res.statusText)
-        //         }
-        //         return res
-        //     })
-        //     .then(res => res.json())
-        //     .then(post => dispatch(downloadPost(post)))
-        //     .catch(console.error)
+        fetch(apiEndpoint + '/posts', {
+            headers: postHeaders,
+            method: 'post',
+            body: JSON.stringify(newPost(author, category, title, body))
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw Error(res.statusText)
+                }
+                return res
+            })
+            .then(res => res.json())
+            .then(updated => {
+                dispatch(downloadPost(updated))
+            })
+            .catch(console.error)
+    }
+}
+
+export function createNewComment(author, parentId, body) {
+    return dispatch => {
+        console.log({ author }, { parentId }, { body })
+        fetch(apiEndpoint + '/comments', {
+            headers: postHeaders,
+            method: 'post',
+            body: JSON.stringify(newComment(author, parentId, body))
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw Error(res.statusText)
+                }
+                return res
+            })
+            .then(res => res.json())
+            .then(updated => {
+                dispatch(downloadComment(updated))
+                dispatch(cancelComment())
+            })
+            .catch(console.error)
     }
 }
 

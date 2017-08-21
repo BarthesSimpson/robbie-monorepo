@@ -4,11 +4,21 @@ import PropTypes from 'prop-types'
 //------- COMPONENTS
 import { Link } from 'react-router-dom'
 
-const PostPreview = ({ id, title, body, author, voteScore, category }) => {
-    console.log({ id })
+const PostPreview = ({
+    id,
+    title,
+    body,
+    author,
+    commentCount,
+    voteScore,
+    category
+}) => {
     const url = `/${category}/${id}`
     return (
         <Link to={url} className="post-preview-container">
+            <span className="post-preview-comments">
+                {commentCount + (commentCount === 1 ? ' comment' : ' comments')}
+            </span>
             <span className="post-preview-votes">
                 {voteScore + ' votes'}
             </span>

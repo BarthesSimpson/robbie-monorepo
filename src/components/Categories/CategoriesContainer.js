@@ -13,8 +13,10 @@ const mapStateToProps = (state, ownProps) => {
             ? allCats.filter(c => ownProps.categories.includes(c))
             : allCats
     const posts = state.categories
+    const comments = state.comments
     return {
         categories,
+        comments,
         posts,
         sortedBy: state.render.sortedBy,
         postsLoading: state.render.postsAreLoading,

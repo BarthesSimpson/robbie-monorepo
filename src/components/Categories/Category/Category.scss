@@ -66,10 +66,10 @@
     background-color: $lightest_peach;
     color: $nice_tomato;
 }
-.post-preview-votes {
+.post-preview-comments, .post-preview-votes {
     display: block;
     float: right;
-    font-size: small;
+    font-size: x-small;
     margin-left: 0.5em;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .post-preview-teaser {
-    font-size: x-small;
+    font-size: xx-small;
     display: block;
     width: 100%;
     white-space: nowrap;

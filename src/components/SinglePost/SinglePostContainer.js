@@ -6,11 +6,11 @@ import SinglePost from './'
 
 //------- ACTIONS
 import { editItem } from '../../redux/actions/posts'
+import { commentOnPost } from '../../redux/actions/comments'
 
 //------- HELPERS
 import {
     fetchSinglePost,
-    commentOnPost,
     likeItem,
     dislikeItem,
     deleteItem
@@ -34,8 +34,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchPost: id => dispatch(fetchSinglePost(id)),
-        commentOnPost: (id, comment) => () =>
-            dispatch(commentOnPost(id, comment)),
+        commentOnPost: (id) => () =>
+            dispatch(commentOnPost(id)),
         editPost: (id, content, title) => () =>
             dispatch(editItem(id, content, title)),
         likePost: id => () => dispatch(likeItem(id, 'post')),

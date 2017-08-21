@@ -1,4 +1,7 @@
 import React from 'react'
+
+import { Link } from 'react-router-dom'
+
 import './Controls.css'
 
 const Controls = ({ sortedBy, sortByRecent, sortByRating, newPost }) => {
@@ -15,9 +18,9 @@ const Controls = ({ sortedBy, sortByRecent, sortByRating, newPost }) => {
             <button className={ratingClass} onClick={sortByRating}>
                 Highest Rated
             </button>
-            <button className="post-btn" onClick={newPost}>
-                New Post
-            </button>
+            <Link className="unstyled-link" to="/new">
+                <button className="post-btn">New Post</button>
+            </Link>
         </div>
     )
 }

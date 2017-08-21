@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
-import './Comments.css'
 
+//------- COMPONENTS
 import Comment from './Comment'
+import NewCommentContainer from '../NewComment/NewCommentContainer'
+
+//------- STYLING
+import './Comments.css'
 
 class Comments extends Component {
     generateComment(c) {
@@ -21,8 +25,15 @@ class Comments extends Component {
         console.log(this.props)
         return (
             <div className="Comments">
-                {this.props.post.comments && this.props.post.comments.map(c => this.generateComment(c))}
-                <div className="add-comment">Add a comment</div>
+                {this.props.commenting && <NewCommentContainer />}
+                {this.props.post.comments &&
+                    this.props.post.comments.map(c => this.generateComment(c))}
+                <button
+                    className="add-comment"
+                    onClick={this.props.newComment(this.props.post.id)}
+                >
+                    Add a comment
+                </button>
             </div>
         )
     }

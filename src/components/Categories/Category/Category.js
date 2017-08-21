@@ -21,17 +21,17 @@ class Category extends React.Component {
         this.props.getPosts(this.props.category)
     }
     generatePostPreview(p) {
-        const { id, title, body, author, voteScore } = p
+        const { id, title, body, author, comments, voteScore } = p
         const prevProps = {
             id,
             title,
             body,
             author,
             voteScore,
+            commentCount: comments.length,
             category: this.props.category,
             key: id
         }
-        console.log({prevProps})
         return <PostPreview {...prevProps} />
     }
     render() {

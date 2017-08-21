@@ -1,0 +1,13 @@
+.NewComment {
+  background-color: #363652; }
+
+.new-comment-name {
+  width: 30%;
+  display: block;
+  margin: 0 0 1em 0.5%; }
+
+.new-comment-content {
+  width: 99%;
+  display: block;
+  margin: auto;
+  height: 15vh; }

@@ -12,7 +12,9 @@ class Categories extends React.Component {
         const catProps = {
             key: c,
             category: c,
-            posts: this.props.posts[c],
+            posts: this.props.posts[c].map(p => {
+                return { ...p, comments: this.props.comments[p.id] }
+            }),
             getPosts: this.props.getPosts,
             isLoading: this.props.postsLoading[c],
             single: this.props.single
@@ -23,9 +25,9 @@ class Categories extends React.Component {
         const cats = this.props.categories
         return (
             <div className="Categories">
-                {cats.length 
-                ? cats.map(c => this.generateCategory(c))
-                : <h3 className='cat-not-found'>Category Not Found</h3> }
+                {cats.length
+                    ? cats.map(c => this.generateCategory(c))
+                    : <h3 className="cat-not-found">Category Not Found</h3>}
             </div>
         )
     }

@@ -15,21 +15,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        sortBy: col => () => dispatch(sortBy(col))
-    }
-}
-
-const mergeProps = (stateProps, dispatchProps) => {
-    const sortedBy = stateProps.sortedBy
-    const sortBy = dispatchProps.sortBy
-    const dummyFunc = () => {}
-    return {
-        sortedBy,
-        sortByRecent: (sortedBy === 'recent') ? dummyFunc : sortBy('recent'),
-        sortByRating: (sortedBy === 'rating') ? dummyFunc : sortBy('rating')
+        sortBy: (col, sortedBy) => () => {
+            if (col !== sortedBy) {
+                dispatch(sortBy(col))
+            }
+        }
     }
 }
 
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps, mergeProps)(Controls)
+    connect(mapStateToProps, mapDispatchToProps)(Controls)
 )

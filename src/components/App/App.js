@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 //------- COMPONENTS
 import Home from '../Home'
+import NewPostContainer from '../NewPost/NewPostContainer'
 import SingleCategory from '../SingleCategory'
 import SinglePostContainer from '../SinglePost/SinglePostContainer'
 import { Switch, Route } from 'react-router-dom'
@@ -18,6 +19,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Switch>
+                    <Route exact path="/new" component={NewPostContainer} />
                     <Route
                         path="/:category/:post"
                         component={SinglePostContainer}
