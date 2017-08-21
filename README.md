@@ -4,18 +4,13 @@ This Udacity homework project was bootstrapped with [Create React App](https://g
 
 ## Run
 
-Clone the repo to your local machine. Install dependencies with command `yarn` then start app with `yarn start`. You will need the dummy backend server from [here](https://github.com/udacity/reactnd-project-readable-starter) running on port 5001.
+Clone the repo to your local machine. Install dependencies with command `yarn` (or `npm i` then start app with `yarn start` (or `npm start`). You will need the dummy backend server from [here](https://github.com/udacity/reactnd-project-readable-starter) running on port 5001.
 
 ## Test
 
-Run `yarn test` to execute tests. If not all tests run, enter `a` from the test console to run them. I wrote only the most basic unit tests for components. I didn't get around to unit tests for reducers, action creators, etc. but they were not required for the homework.
+Run `yarn test a` or `npm test a` to execute tests. I wrote only the most basic unit tests for components. I didn't get around to unit tests for reducers, action creators, etc. but they were not required for the homework.
 
-## Two Small Divergences from Rubric
-
-- The rubric states: 
->The application requires only npm install and npm start to install and launch.
-
-I used `yarn` instead of `npm`.
+## One Small Divergence from Rubric
 
 - The rubric states:
 >Listed posts are displayed with title, author, number of comments, current score, __and a voting mechanism to upvote or downvote the post__. Posts should have buttons or links for editing or deleting that post.
