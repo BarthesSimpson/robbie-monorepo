@@ -14,14 +14,14 @@ export default {
         content: null
     },
     newPost: {
-        author: null,
+        author: '',
         category: null,
-        title: null,
-        content: null
+        title: '',
+        content: ''
     },
     newComment: {
-        author: null,
-        parentId: null,
-        content: null
+        author: '',
+        parentId: '',
+        content: ''
     }
 }

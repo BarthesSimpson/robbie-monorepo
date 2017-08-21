@@ -1,3 +1,4 @@
+const ADD_POST_TO_CATEGORY = 'ADD_POST_TO_CATEGORY'
 const CANCEL_EDIT = 'CANCEL_EDIT'
 const CANCEL_NEW_POST = 'CANCEL_NEW_POST'
 const DELETE_COMMENT = 'DELETE_COMMENT'
@@ -11,6 +12,14 @@ const POST_IS_UPDATING = 'POST_IS_UPDATING'
 const SET_COMMENTS = 'SET_COMMENTS'
 const SET_POSTS = 'SET_POSTS'
 const SORT_BY = 'SORT_BY'
+
+export function addPostToCategory(category, post) {
+    return {
+        type: ADD_POST_TO_CATEGORY,
+        category,
+        post
+    }
+}
 
 export function cancelEdit() {
     return {

@@ -5,15 +5,16 @@ import { withRouter } from 'react-router-dom'
 import NewPost from './'
 
 //------- ACTIONS
-import { cancelNewPost, editNewPost } from '../../redux/actions/posts'
+import { editNewPost } from '../../redux/actions/posts'
 
 //------- HELPERS
-import { createNewPost } from '../../redux/middlewares/thunks/api'
+import { createNewPost, cancelPost } from '../../redux/middlewares/thunks/api'
 
 const mapStateToProps = (state, ownProps) => {
+    const allCats = Object.keys(state.categories)
     return {
-        categories: Object.keys(state.categories),
-        category: state.newPost.category,
+        categories: allCats,
+        category: state.newPost.category || allCats[0],
         author: state.newPost.author,
         title: state.newPost.title,
         content: state.newPost.content
@@ -23,9 +24,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         editNewPost: (field, val) => dispatch(editNewPost(field, val)),
-        cancelNewPost: () => dispatch(cancelNewPost()),
-        createNewPost: (category, author, title, content) => () =>
-            dispatch(createNewPost(category, author, title, content))
+        cancelPost: (history) => dispatch(cancelPost(history)),
+        createNewPost: (category, author, title, content, history) =>
+            dispatch(createNewPost(category, author, title, content, history))
     }
 }
 

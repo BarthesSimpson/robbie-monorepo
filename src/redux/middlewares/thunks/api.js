@@ -1,7 +1,9 @@
 //ACTION CREATORS
 import { categoriesAreLoading, setCategories } from '../../actions/categories'
 import {
+    addPostToCategory,
     cancelEdit,
+    cancelNewPost,
     downloadComment,
     downloadPost,
     deleteComment,
@@ -129,6 +131,13 @@ export function voteOnItem(id, option, type) {
     }
 }
 
+export function cancelPost(history) {
+    return dispatch => {
+        dispatch(cancelNewPost())
+        history.push('/')
+    }
+}
+
 export function confirmEditItem(id, body, title, type) {
     return dispatch => {
         dispatch(postIsUpdating(id, true))
@@ -155,7 +164,7 @@ export function confirmEditItem(id, body, title, type) {
     }
 }
 
-export function createNewPost(author, category, title, body) {
+export function createNewPost(author, category, title, body, history) {
     return dispatch => {
         fetch(apiEndpoint + '/posts', {
             headers: postHeaders,
@@ -170,7 +179,10 @@ export function createNewPost(author, category, title, body) {
             })
             .then(res => res.json())
             .then(updated => {
+                dispatch(addPostToCategory(category, updated))
                 dispatch(downloadPost(updated))
+                dispatch(setComments(updated.id, []))
+                history.push(`/${category}/${updated.id}`)
             })
             .catch(console.error)
     }

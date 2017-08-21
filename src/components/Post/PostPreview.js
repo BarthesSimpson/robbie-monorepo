@@ -22,7 +22,7 @@ const PostPreview = ({
             <span className="post-preview-votes">
                 {voteScore + ' votes'}
             </span>
-            <span className="post-preview-title">
+                        <span className="post-preview-title">
                 {title}
             </span>
             <span className="post-preview-teaser">

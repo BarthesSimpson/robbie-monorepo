@@ -46,11 +46,11 @@
   margin: 0.1em;
   background-color: #783E3F;
   padding: 0.5em;
-  border-radius: 2px; }
+  border-radius: 2px;
+  overflow: hidden; }
 
 .Category:hover .post-preview-container {
-  background-color: #D7755F;
-  overflow: hidden; }
+  background-color: #D7755F; }
 
 .Category .post-preview-container:hover {
   background-color: #ECD2C8;
@@ -59,16 +59,17 @@
 .post-preview-comments, .post-preview-votes {
   display: block;
   float: right;
-  font-size: x-small;
-  margin-left: 0.5em; }
+  font-size: 0.5em;
+  line-height: 1.5em;
+  margin-left: 0.75em; }
 
 .post-preview-title {
-  font-size: small;
+  font-size: 0.75em;
   display: block;
   margin-bottom: 1em; }
 
 .post-preview-teaser {
-  font-size: xx-small;
+  font-size: 0.25em;
   display: block;
   width: 100%;
   white-space: nowrap;

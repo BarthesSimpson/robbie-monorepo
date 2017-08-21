@@ -15,12 +15,17 @@ function categories(state = initialState.categories, action) {
                 [action.category]: action.posts
             }
         case 'DELETE_POST':
-            console.log(action.postId)
             //THIS IS A GROSS WAY TO DO IT, BUT IT'S THE LEAST OF THREE EVILS
             return Object.keys(state).reduce((l, r) => {
                 l[r] = state[r].filter(p => p.id !== action.postId)
                 return l
             }, {})
+        case 'ADD_POST_TO_CATEGORY':
+            console.log({ action })
+            return {
+                ...state,
+                [action.category]: state[action.category].concat([action.post])
+            }
         default:
             return state
     }
