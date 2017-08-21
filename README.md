@@ -12,7 +12,11 @@ Run `yarn test` to execute tests. If not all tests run, enter `a` from the test 
 
 ## Two Small Divergences from Rubric
 
-- The rubric states `The application requires only npm install and npm start to install and launch.` I used `yarn` instead of `npm`.
+- The rubric states: 
+>The application requires only npm install and npm start to install and launch.
+I used `yarn` instead of `npm`.
 
-- The rubric states `Listed posts are displayed with title, author, number of comments, current score, __and a voting mechanism to upvote or downvote the post__. Posts should have buttons or links for editing or deleting that post.` I included the voting mechanism only on the post detail view. This is because I think it makes sense to only allow voting on a post you have opened and read. It would be trivial to change this, but I think it is a better design.
+- The rubric states:
+>Listed posts are displayed with title, author, number of comments, current score, __and a voting mechanism to upvote or downvote the post__. Posts should have buttons or links for editing or deleting that post.
+I included the voting mechanism only on the post detail view. This is because I think it makes sense to only allow voting on a post you have opened and read. It would be trivial to change this, but I think it is a better design.
 
