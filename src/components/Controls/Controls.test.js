@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Controls from './Controls';
+import TestWrapper from '../../../test/components/TestWrapper'
+import ControlsContainer from './ControlsContainer';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Controls />, div);
-});
+describe('ControlsTests', () => {
+    it('renders without crashing', () => {
+        const div = document.createElement('div')
+        ReactDOM.render(
+            <TestWrapper>
+                <ControlsContainer />
+            </TestWrapper>,
+            div
+        )
+    })
+})

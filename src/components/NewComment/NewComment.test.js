@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NewComment from './NewComment';
+import TestWrapper from '../../../test/components/TestWrapper'
+import NewCommentContainer from './NewCommentContainer';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<NewComment />, div);
-});
+describe('NewCommentTests', () => {
+    it('renders without crashing', () => {
+        const div = document.createElement('div')
+        ReactDOM.render(
+            <TestWrapper>
+                <NewCommentContainer />
+            </TestWrapper>,
+            div
+        )
+    })
+})

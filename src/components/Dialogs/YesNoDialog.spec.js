@@ -35,7 +35,7 @@ describe('YesNoDialog Tests', () => {
 
     it('message renders above buttons', () => {
         const h3 = component.find('h3')
-        expect(h3.html()).toBe(testProps.message)
+        expect(h3.html()).toBe('<h3>'+testProps.message+'</h3>')
     })
 
     it('confirmText renders on confirm button', () => {

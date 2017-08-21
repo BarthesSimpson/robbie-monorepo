@@ -1,8 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import AppContainer from './AppContainer';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import TestWrapper from '../../../test/components/TestWrapper'
+import AppContainer from './AppContainer'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<AppContainer />, div);
-});
+describe('App Tests', () => {
+    it('renders without crashing', () => {
+        const div = document.createElement('div')
+        ReactDOM.render(
+            <TestWrapper>
+                <AppContainer />
+            </TestWrapper>,
+            div
+        )
+    })
+})

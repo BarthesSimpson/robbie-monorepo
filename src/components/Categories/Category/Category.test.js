@@ -1,8 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Category from './Category';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Category from './Category'
+import ShallowRenderer from 'react-test-renderer/shallow'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Category />, div);
-});
+const renderer = new ShallowRenderer()
+
+xdescribe('Category Tests', () => {
+    it('renders without crashing', () => {
+        renderer.render(<Category />)
+        // const result = renderer.getRenderOutput();
+    })
+})
+
