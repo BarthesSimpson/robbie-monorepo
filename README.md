@@ -4,7 +4,7 @@ This Udacity homework project was bootstrapped with [Create React App](https://g
 
 ## Run
 
-Clone the repo to your local machine. Install dependencies with command `yarn` (or `npm i` then start app with `yarn start` (or `npm start`). You will need the dummy backend server from [here](https://github.com/udacity/reactnd-project-readable-starter) running on port 5001.
+Clone the repo to your local machine. Install dependencies with command `yarn` (or `npm i`) then start app with `yarn start` (or `npm start`). You will need the dummy backend server from [here](https://github.com/udacity/reactnd-project-readable-starter) running on port 5001.
 
 ## Test
 
