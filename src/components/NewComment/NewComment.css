@@ -1,5 +1,6 @@
 .NewComment {
-  background-color: #363652; }
+  background-color: #363652;
+  padding-bottom: 1em; }
 
 .new-comment-name {
   width: 30%;

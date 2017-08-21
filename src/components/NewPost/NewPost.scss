@@ -1,0 +1,40 @@
+@import '../../constants/_colors';
+@import '../../constants/_media';
+
+.NewPost {
+    background-color: $lighter_purple;
+    padding-bottom: 1em;
+}
+
+.NewPost label {
+    float: left;
+    width: 30%;
+    text-align: right;
+    color: $nice_white;
+    margin-right: 1em;
+}
+
+.new-post-name:first-of-type,
+.NewPost label:first-of-type {
+    margin-top: 1em;
+}
+
+.new-post-name,
+.new-post-title,
+.new-post-cat {
+    width: 30%;
+    display: block;
+    margin: 0 0 1em 0.5%;
+    border: none;
+    border-radius: 2px;
+    @media screen and (max-width: $tablet) {
+        width: 50%;
+    }
+}
+
+.new-post-content {
+    width: 99%;
+    display: block;
+    margin: auto;
+    height: 40vh;
+}

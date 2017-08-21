@@ -15,26 +15,35 @@ class NewPost extends React.Component {
         return (
             <div className="NewPost">
                 <Header msg={messages.header.newPost} />
+                <label htmlFor="new-post-name">
+                    Your Name:
+                </label>
                 <input
                     value={this.props.author}
                     placeholder="Your Name"
-                    className="new-comment-name"
+                    className="new-post-name"
                     onChange={e =>
                         this.props.editNewPost('author', e.target.value)}
                     ref={input => {
                         this.textInput = input
                     }}
                 />
+                <label htmlFor="new-post-title">
+                    Title:
+                </label>
                 <input
                     value={this.props.title}
                     placeholder="Post Title"
-                    className="new-comment-title"
+                    className="new-post-title"
                     onChange={e =>
                         this.props.editNewPost('title', e.target.value)}
                 />
-                Category: 
+                <label htmlFor="new-post-cat">
+                    Category:
+                </label>
                 <select
-                    className="new-comment-cat"
+                    id="new-post-cat"
+                    className="new-post-cat"
                     value={this.props.category}
                     onChange={e =>
                         this.props.editNewPost('category', e.target.value)}
@@ -52,7 +61,6 @@ class NewPost extends React.Component {
                         )
                     })}
                 </select>
-
                 <textarea
                     value={this.props.content}
                     placeholder="Write your comment here..."
