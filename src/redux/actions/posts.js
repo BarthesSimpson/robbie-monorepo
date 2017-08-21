@@ -110,9 +110,10 @@ export function setPosts(category, posts) {
     }
 }
 
-export function sortBy(col) {
+export function sortBy(level, col) {
     return {
         type: SORT_BY,
+        level,
         col
     }
 }

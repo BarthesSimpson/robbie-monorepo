@@ -150,10 +150,17 @@ function render(state = initialState.render, action) {
                     [action.id]: action.bool
                 }
             }
+        default:
+            return state
+    }
+}
+
+function sorting(state = initialState.sorting, action) {
+    switch (action.type) {
         case 'SORT_BY':
             return {
                 ...state,
-                sortedBy: action.col
+                [action.level]: action.col
             }
         default:
             return state
@@ -167,5 +174,6 @@ export default combineReducers({
     newComment,
     newPost,
     posts,
-    render
+    render,
+    sorting
 })

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 //------- COMPONENTS
 import Comment from './Comment'
+import ControlsContainer from '../Controls/ControlsContainer'
 import NewCommentContainer from '../NewComment/NewCommentContainer'
 
 //------- STYLING
@@ -23,17 +24,13 @@ class Comments extends Component {
 
     render() {
         console.log(this.props)
+        const controlProps = { postId: this.props.post.id, level: 'comments' }
         return (
             <div className="Comments">
-                {this.props.commenting && <NewCommentContainer />}
-                {this.props.post.comments &&
-                    this.props.post.comments.map(c => this.generateComment(c))}
-                <button
-                    className="add-comment"
-                    onClick={this.props.newComment(this.props.post.id)}
-                >
-                    Add a comment
-                </button>
+                {this.props.commenting
+                    ? <NewCommentContainer />
+                    : <ControlsContainer {...controlProps} />}
+                {this.props.comments.map(c => this.generateComment(c))}
             </div>
         )
     }

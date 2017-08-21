@@ -1,17 +1,16 @@
 export default {
     categories: {},
-    posts: {},
     comments: {},
-    render: {
-        categoriesAreLoading: true,
-        postsAreLoading: {},
-        postIsUpdating: {},
-        sortedBy: 'recent'
-    },
-    controls: {
+    posts: {},
+        controls: {
         commenting: null,
         editing: null,
         content: null
+    },
+        newComment: {
+        author: '',
+        parentId: '',
+        content: ''
     },
     newPost: {
         author: '',
@@ -19,9 +18,14 @@ export default {
         title: '',
         content: ''
     },
-    newComment: {
-        author: '',
-        parentId: '',
-        content: ''
+    render: {
+        categoriesAreLoading: true,
+        postsAreLoading: {},
+        postIsUpdating: {},
+    },
+    sorting: {
+        posts: 'timestamp',
+        comments: 'timestamp'
     }
+
 }

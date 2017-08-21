@@ -4,6 +4,9 @@ import PropTypes from 'react-proptypes'
 //-------COMPONENTS
 import Category from './Category'
 
+//-------HELPERS
+import { sortItems } from '../../helpers/sorting'
+
 //-------STYLING
 import './Categories.css'
 
@@ -12,7 +15,10 @@ class Categories extends React.Component {
         const catProps = {
             key: c,
             category: c,
-            posts: this.props.posts[c].map(p => {
+            posts: sortItems(
+                this.props.posts[c],
+                this.props.sortedBy
+            ).map(p => {
                 return { ...p, comments: this.props.comments[p.id] }
             }),
             getPosts: this.props.getPosts,

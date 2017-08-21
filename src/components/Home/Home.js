@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div className="Home">
             <Header msg={messages.header.home} />
-            <ControlsContainer />
+            <ControlsContainer level="posts" />
             <CategoriesContainer />
         </div>
     )

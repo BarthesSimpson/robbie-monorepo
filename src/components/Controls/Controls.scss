@@ -7,6 +7,11 @@
     overflow: hidden;
 }
 
+.controls-comments {
+    background-color: $nice_white;
+    color: $nice_black;
+}
+
 .sort-label {
     float: left;
     padding: 0.5em;
@@ -44,6 +49,10 @@
     @media screen and (max-width: $mobile) {
         width: 20%;
     }
+}
+
+.controls-comments .post-btn {
+    margin-right: 1vw;
 }
 
 .post-btn:hover {

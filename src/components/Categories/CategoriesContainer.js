@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
         categories,
         comments,
         posts,
-        sortedBy: state.render.sortedBy,
+        sortedBy: state.sorting.posts,
         postsLoading: state.render.postsAreLoading,
         single: !!ownProps.categories && ownProps.categories.length === 1
     }

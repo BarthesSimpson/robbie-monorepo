@@ -7,7 +7,7 @@ export function newPost(author, category, title, content) {
         category,
         title,
         body: content,
-        timestamp: moment().unix(),
+        timestamp: moment.utc().valueOf(),
         id: uuidv4()
         //THE SERVER ALREADY DOES THIS EXTRA WORK
         // voteScore: 0,
