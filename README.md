@@ -14,6 +14,7 @@ Run `yarn test` to execute tests. If not all tests run, enter `a` from the test 
 
 - The rubric states: 
 >The application requires only npm install and npm start to install and launch.
+
 I used `yarn` instead of `npm`.
 
 - The rubric states:
