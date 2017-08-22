@@ -16,7 +16,9 @@ const mapStateToProps = (state, ownProps) => {
     const ratingClass =
         'sort-btn rating' + (sortedBy === 'voteScore' ? ' active' : '')
     const comments =
-        ownProps.level === 'comments' && state.comments[ownProps.postId].length > 0
+        ownProps.level === 'comments' &&
+        state.comments[ownProps.postId] &&
+        state.comments[ownProps.postId].length > 0
 
     return {
         sortedBy,

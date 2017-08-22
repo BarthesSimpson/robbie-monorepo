@@ -25,4 +25,5 @@ Header.propTypes = {
     msg: PropTypes.string,
     editing: PropTypes.bool
 }
+
 export default Header

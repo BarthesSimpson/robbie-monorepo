@@ -16,18 +16,21 @@ const PostPreview = ({
     const url = `/${category}/${id}`
     return (
         <Link to={url} className="post-preview-container">
-            <span className="post-preview-comments">
-                {commentCount + (commentCount === 1 ? ' comment' : ' comments')}
-            </span>
-            <span className="post-preview-votes">
-                {voteScore + ' votes'}
-            </span>
-                        <span className="post-preview-title">
+            <div className="post-preview-stats">
+                <span className="post-preview-comments">
+                    {commentCount +
+                        (commentCount === 1 ? ' comment' : ' comments')}
+                </span>
+                <span className="post-preview-votes">
+                    {voteScore + ' votes'}
+                </span>
+            </div>
+            <span className="post-preview-title">
                 {title}
             </span>
-            <span className="post-preview-teaser">
+            <div className="post-preview-teaser">
                 {body.substring(0, 100) + '...'}
-            </span>
+            </div>
         </Link>
     )
 }
