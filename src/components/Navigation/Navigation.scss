@@ -1,0 +1,22 @@
+@import '../../constants/_colors';
+
+.Navigation {
+}
+
+.menu-btn {
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.menu-container {
+    width: 50%;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    background-color: $nice_black;
+}
+
+.menu-link {
+    display: block;
+    padding: 1em;
+}

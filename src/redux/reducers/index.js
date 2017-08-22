@@ -150,6 +150,17 @@ function render(state = initialState.render, action) {
                     [action.id]: action.bool
                 }
             }
+        case 'TOGGLE_MENU':
+            return {
+                ...state,
+                menuVisible: !state.menuVisible
+            }
+        case 'SET_CATEGORY':
+            return {
+                ...state,
+                menuVisible: false,
+                category: action.category
+            }
         default:
             return state
     }
