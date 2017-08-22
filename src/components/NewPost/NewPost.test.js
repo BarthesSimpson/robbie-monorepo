@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestWrapper from '../../../test/components/TestWrapper'
+import TestWrapper from '../../test/components/TestWrapper'
 import NewPostContainer from './NewPostContainer';
 
 describe('New Post Tests', () => {

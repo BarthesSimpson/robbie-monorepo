@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TestWrapper from '../../../test/components/TestWrapper'
-import NewCommentContainer from './NewCommentContainer';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import TestWrapper from '../../test/components/TestWrapper'
+import NewCommentContainer from './NewCommentContainer'
 
 describe('NewCommentTests', () => {
     it('renders without crashing', () => {
