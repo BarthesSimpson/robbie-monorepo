@@ -182,6 +182,7 @@ export function createNewPost(author, category, title, body, history) {
                 dispatch(addPostToCategory(category, updated))
                 dispatch(downloadPost(updated))
                 dispatch(setComments(updated.id, []))
+                dispatch(cancelNewPost(updated))
                 history.push(`/${category}/${updated.id}`)
             })
             .catch(console.error)
