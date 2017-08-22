@@ -19,6 +19,10 @@ export default {
         content: ''
     },
     render: {
+        category: 'all',
+        post: null,
+        level: 'category',
+        menuVisible: false,
         categoriesAreLoading: true,
         postsAreLoading: {},
         postIsUpdating: {},

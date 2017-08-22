@@ -42,14 +42,16 @@ class Category extends React.Component {
             'Category' + (this.props.single ? ' single-category' : '')
         return (
             <div className={catClass}>
-                <Link to={url} className="category-title">
-                    {toTitleCase(category)}
-                    <FontAwesome
-                        className="icon"
-                        size="2x"
-                        name={icons[category]}
-                    />
-                </Link>
+                {this.props.category === 'all'
+                    ? <div className="cat-pad"></div>
+                    : <Link to={url} className="category-title">
+                          {toTitleCase(category)}
+                          <FontAwesome
+                              className="icon"
+                              size="2x"
+                              name={icons[category]}
+                          />
+                      </Link>}
                 {this.props.isLoading && <Spinner />}
                 {posts && posts.map(p => this.generatePostPreview(p))}
             </div>

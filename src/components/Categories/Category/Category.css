@@ -18,6 +18,9 @@
       width: 98vw;
       margin: 0.5em auto 0 auto; } }
 
+.cat-pad {
+  height: 0.75em; }
+
 .single-category {
   height: auto;
   width: 98vw;

@@ -1,0 +1,14 @@
+.menu-btn {
+  margin-left: 1em;
+  cursor: pointer; }
+
+.menu-container {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  background-color: #222; }
+
+.menu-link {
+  display: block;
+  padding: 1em; }
