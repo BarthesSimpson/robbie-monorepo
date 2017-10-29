@@ -1,0 +1,17 @@
+div,
+button,
+span,
+input,
+textarea {
+  box-sizing: border-box;
+  outline: none; }
+
+.App {
+  text-align: center; }
+
+.App-intro {
+  font-size: large; }
+
+.unstyled-link {
+  text-decoration: none;
+  color: inherit; }

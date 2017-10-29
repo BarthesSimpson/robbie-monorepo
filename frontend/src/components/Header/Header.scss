@@ -1,0 +1,22 @@
+@import '../../constants/_colors';
+
+.logo-header {
+    height: 100%;
+}
+
+.header {
+    background-color: $nice_black;
+    padding: 1em;
+    color: $nice_white;
+    overflow: hidden;
+}
+
+.image-link {
+    height: 10vh;
+    float: left;
+    margin: 1vh;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+    vertical-align: middle;
+}

@@ -1,0 +1,61 @@
+@import '../../constants/_colors';
+@import '../../constants/_media';
+
+.Controls {
+    background-color: $nice_red;
+    color: $nice_white;
+    overflow: hidden;
+}
+
+.controls-comments {
+    background-color: $nice_white;
+    color: $nice_black;
+}
+
+.sort-label {
+    float: left;
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
+.sort-btn {
+    width: 20%;
+    float: left;
+    padding: 0.5em;
+    background-color: $nice_red;
+    color: $nice_white;
+    border: none;
+    cursor: pointer;
+}
+
+.sort-btn:hover:not(.active) {
+    background-color: $lightest_purple;
+    color: $nice_purple;
+}
+
+.sort-btn.active {
+    background-color: $nice_purple;
+}
+
+.post-btn {
+    width: 29%;
+    float: right;
+    padding: 0.5em;
+    margin-right: 1em;
+    background-color: $lighter_purple;
+    color: $nice_white;
+    border: none;
+    cursor: pointer;
+    @media screen and (max-width: $mobile) {
+        width: 20%;
+    }
+}
+
+.controls-comments .post-btn {
+    margin-right: 1vw;
+}
+
+.post-btn:hover {
+    background-color: $lightest_purple;
+    color: $nice_purple;
+}

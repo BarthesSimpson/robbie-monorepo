@@ -1,0 +1,30 @@
+.Comment {
+  min-height: 10vh;
+  width: 98vw;
+  margin: 0.5em auto 0 auto;
+  padding: 0.75em;
+  background-size: auto 80%;
+  background-color: #8484ae;
+  color: #222;
+  border-radius: 2px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden; }
+
+.Comment h4 {
+  text-align: left; }
+
+.CommentControls {
+  float: right; }
+
+.comment-stats {
+  display: block;
+  float: right;
+  margin-right: 1em;
+  line-height: 1.5em; }
+
+.comment-cnt-btn {
+  background-color: #D7755F;
+  border-color: #783E3F; }

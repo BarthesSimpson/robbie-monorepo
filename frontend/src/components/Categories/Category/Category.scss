@@ -1,0 +1,99 @@
+@import '../../../constants/_colors';
+@import '../../../constants/_media';
+
+.Category {
+    height: 70vh;
+    width: 29vw;
+    padding: 0 0.75em 0.75em 0.75em;
+    background-size: auto 80%;
+    background-color: $nice_purple;
+    margin: 1em;
+    color: $nice_white;
+    border-radius: 2px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    @media screen and (max-width: $tablet) {
+        width: 43vw;
+    }
+    @media screen and (max-width: $mobile) {
+        width: 98vw;
+        margin: 0.5em auto 0 auto;
+    }
+}
+
+.cat-pad {
+    height: 0.75em;
+}
+
+.single-category {
+    height: auto;
+    width: 98vw;
+    margin: 0.5em auto 0 auto;
+}
+
+.Category:hover {
+    background-color: $lighter_purple;
+}
+
+.category-title {
+    padding: 0.75em 0;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #fff0e0;
+}
+
+.icon {
+    display: block;
+    size: 4em;
+    margin: 1em;
+}
+
+.post-preview-container {
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    color: $nice_white;
+    margin: 0.1em;
+    background-color: $nice_red;
+    padding: 0.5em;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.Category:hover .post-preview-container {
+    background-color: $nice_tomato;
+}
+
+.Category .post-preview-container:hover {
+    background-color: $lightest_peach;
+    color: $nice_tomato;
+}
+
+.post-preview-stats {
+    display: block;
+    float: right;
+    margin-left: 0.5em;
+
+}
+
+.post-preview-comments, .post-preview-votes {
+    display: block;
+    font-size: 0.75em;
+    line-height: 1.75em;
+}
+
+.post-preview-title {
+    font-size: 1em;
+    display: block;
+    margin-bottom: 1em;
+}
+
+.post-preview-teaser {
+    font-size: 0.75em;
+    margin-top: 3em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

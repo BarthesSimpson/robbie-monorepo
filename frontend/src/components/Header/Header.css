@@ -1,0 +1,17 @@
+.logo-header {
+  height: 100%; }
+
+.header {
+  background-color: #222;
+  padding: 1em;
+  color: #FFF0E0;
+  overflow: hidden; }
+
+.image-link {
+  height: 10vh;
+  float: left;
+  margin: 1vh;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+  vertical-align: middle; }
